@@ -20,7 +20,7 @@ jobs:
       cluster: dev-gcp
       appname: "aap-oppgavestyring-frontend"
       playwright: false
-      cdn: true
+      cdn: false
 
   deployDev:
     needs: buildDev
