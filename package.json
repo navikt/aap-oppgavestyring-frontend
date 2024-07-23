@@ -14,6 +14,12 @@
   },
   "prettier": "@navikt/aap-felles-prettier",
   "dependencies": {
+    "@navikt/aap-felles-utils": "^1.1.0",
+    "@navikt/aksel-icons": "^6.13.0",
+    "@navikt/ds-css": "^6.13.0",
+    "@navikt/ds-react": "^6.13.0",
+    "@navikt/oasis": "^3.3.0",
+    "jose": "^5.6.3",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
@@ -37,6 +43,7 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "lint-staged": "^15.2.7",
+    "pino-pretty": "^11.2.1",
     "prettier": "^3.3.3",
     "typescript": "^5"
   },
