@@ -12,12 +12,14 @@
     "prepare": "husky",
     "run-prettier": "prettier --write ."
   },
+  "prettier": "@navikt/aap-felles-prettier",
   "dependencies": {
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@navikt/aap-felles-prettier": "^1.1.0",
     "@navikt/eslint-config-aap": "^1.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
