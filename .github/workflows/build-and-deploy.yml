@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - "**.md"
+      - '**.md'
 
 jobs:
   buildDev:
@@ -18,7 +18,7 @@ jobs:
     secrets: inherit
     with:
       cluster: dev-gcp
-      appname: "aap-oppgavestyring-frontend"
+      appname: 'aap-oppgavestyring-frontend'
       playwright: false
       cdn: false
 
