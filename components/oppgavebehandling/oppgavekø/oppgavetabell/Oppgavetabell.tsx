@@ -8,7 +8,6 @@ import { Oppgave } from 'lib/types/oppgavebehandling';
 import styles from './Oppgavetabell.module.css';
 import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { useContext, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { KøContext } from 'components/oppgavebehandling/KøContext';
 import { fetchProxy } from 'lib/clientApi';
 import { useSWRConfig } from 'swr';
@@ -50,7 +49,6 @@ export const Oppgavetabell = ({ oppgaver, sorterbar = true }: Props) => {
   const køContext = useContext(KøContext);
 
   const valgtKø = køContext.valgtKø;
-  const router = useRouter();
   const { mutate } = useSWRConfig();
 
   const search = byggQueryString(køContext.valgtKø);
@@ -78,7 +76,7 @@ export const Oppgavetabell = ({ oppgaver, sorterbar = true }: Props) => {
       versjon: 1,
     });
     if (res && res.status === 200) {
-      router.push(`/sak/${oppgave.saksnummer}/${oppgave.behandlingsreferanse}`);
+      window.location.href = `${process.env.NEXT_PUBLIC_SAKSBEHANDLING_URL}/sak/${oppgave.saksnummer}/${oppgave.behandlingsreferanse}`;
     } else {
       oppdaterBehandlerDokument(undefined);
       console.error('Klarte ikke å tildele oppgave');
