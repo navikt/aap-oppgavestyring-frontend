@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev | pino-pretty",
     "build": "next build",
-    "test": "vitest",
+    "test": "vitest --run",
     "start": "next start",
     "lint": "next lint",
     "gentypes": "openapi-typescript http://localhost:8080/openapi.json -o lib/types/schema.d.ts",
