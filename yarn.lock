@@ -671,34 +671,42 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/aap-felles-prettier@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@navikt/aap-felles-prettier@npm:1.4.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-prettier%2F1.4.0%2F7d7a4e4c574f3c3d6f5e5d1e2be98d41abc46326"
-  dependencies:
-    "@trivago/prettier-plugin-sort-imports": "npm:^4.3.0"
-    prettier: "npm:^3.3.2"
-  checksum: 10c0/7f045656933c6332dcc971493653a97d98fb4e83aac173149e7329d984f052bfbdc4238474babb5680386d509215fc6f0fe1b3be6ad3dbebb8e36431b389b9e3
+"@navikt/aap-felles-css@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@navikt/aap-felles-css@npm:1.5.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-css%2F1.5.1%2F8d3355cdba0758909a3e7f2f7fc8386f069f5781"
+  checksum: 10c0/17377c56c2a6ee27a52af5260ca424f792bb18c8030525304e2c4626443ae9683bcd91c90c113346af5850b20b0cfc0702c742034ebe8de76ff6374e0f0ec7ac
   languageName: node
   linkType: hard
 
-"@navikt/aap-felles-react@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@navikt/aap-felles-react@npm:1.4.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-react%2F1.4.0%2F62625cd04b2358e3a498c61bef1d7a7f88994efe"
+"@navikt/aap-felles-prettier@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@navikt/aap-felles-prettier@npm:1.5.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-prettier%2F1.5.1%2F722ca11a43c19e25226190584490f97840b6d6b6"
+  dependencies:
+    "@trivago/prettier-plugin-sort-imports": "npm:^4.3.0"
+    prettier: "npm:^3.3.2"
+  checksum: 10c0/b4e6f991ad461e7a5c63b41d796cd3f7589a8732e59bc56faf70b090dd0f37b3eb06c06edc9a233c1b68763fae0827eda18252aba518df17a4fe053c29f527cc
+  languageName: node
+  linkType: hard
+
+"@navikt/aap-felles-react@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@navikt/aap-felles-react@npm:1.5.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-react%2F1.5.1%2Fa203f0698ae8527e681e5d5fd07c6c3edf90dc7a"
   dependencies:
     "@navikt/aksel-icons": "npm:^6.13.0"
     "@navikt/ds-css": "npm:^6.13.0"
     "@navikt/ds-react": "npm:^6.13.0"
     prop-types: "npm:^15.8.1"
     react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     react-hook-form: "npm:^7.52.1"
     uuid: "npm:^10.0.0"
-  checksum: 10c0/05df980acd6e20ec5ed91ac9c7000d939219cda3770f7f439af6b7a8f3c7c5a6abd95eb1a1a9fd0c7872a6397aae13759ea5ebb5aee06ad76d3afe9aea08833d
+  checksum: 10c0/117314a47c3ef82b477a91d2b9586752e2b0274b2d78e5a7a62bceb462481febe651ef67c12d5519c1bcd028c71d75dbb6b3be4fd289370509fa04446d04d445
   languageName: node
   linkType: hard
 
-"@navikt/aap-felles-utils@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@navikt/aap-felles-utils@npm:1.4.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-utils%2F1.4.0%2F64417df4fe9e43b517ac643b6d6e75b0b7ef02ed"
+"@navikt/aap-felles-utils@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@navikt/aap-felles-utils@npm:1.5.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-utils%2F1.5.1%2F05f26450cc548e3517672726d72cc75aa57654e9"
   dependencies:
     "@navikt/oasis": "npm:^3.3.0"
     axios: "npm:^1.7.2"
@@ -708,7 +716,7 @@ __metadata:
     pino: "npm:^9.2.0"
     prom-client: "npm:^15.1.3"
     server-only: "npm:^0.0.1"
-  checksum: 10c0/c4b0d2133244335b568d140668a7115f2e28d6675f8cafac1d161ebc2de161bba9e649211b24c7f7693085a10590dfada47b197c7c6dbb9865fd98f559687830
+  checksum: 10c0/b6f307392daac690f7820fee9f49608fe1059978063087cb8b3e1327a4446db4a9b83f403ef2d99685aa10084c400163b66b512189bd86cdf046fc6caf72fa1e
   languageName: node
   linkType: hard
 
@@ -751,9 +759,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/eslint-config-aap@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@navikt/eslint-config-aap@npm:1.4.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Feslint-config-aap%2F1.4.0%2F1f1815f46adb7a6e4c2b67a8f572afebcb014f1d"
+"@navikt/eslint-config-aap@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@navikt/eslint-config-aap@npm:1.5.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Feslint-config-aap%2F1.5.1%2Fc32daf08eb9d6d824300ada430ebe2dbf2347b59"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^7.7.0
     "@typescript-eslint/parser": ^7.7.0
@@ -763,7 +771,7 @@ __metadata:
     eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-react: ^7.34.1
     eslint-plugin-react-hooks: ^4.6.0
-  checksum: 10c0/da3d96d9b19672ae59ee2ae0891837d6bffba92bd621e25c995d14ddc70cbc259913b5ec1ab964360e6aa81230b162336de7789ba4db2d3fb179d6a141304e98
+  checksum: 10c0/53c3382a64457e8f6883581ec108b0ca66b006c02ce495a7ee7f4bd4b37e4b5d1e2560b761ce2afc2dd42249b6d4a99529cc1216efa00274970dc38b55238649
   languageName: node
   linkType: hard
 
@@ -1269,12 +1277,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20":
-  version: 20.14.11
-  resolution: "@types/node@npm:20.14.11"
+"@types/node@npm:^20.14.12":
+  version: 20.14.12
+  resolution: "@types/node@npm:20.14.12"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/5306becc0ff41d81b1e31524bd376e958d0741d1ce892dffd586b9ae0cb6553c62b0d62abd16da8bea6b9a2c17572d360450535d7c073794b0cef9cb4e39691e
+  checksum: 10c0/59bc5fa11fdd23fd517f859063118f54a1ab53d3399ef63c926f8902429d7453abc0db22ef4b0a6110026b6ab81b6472fee894e1d235c24b01a0b3e10cfae0bb
   languageName: node
   linkType: hard
 
@@ -1285,7 +1293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18":
+"@types/react-dom@npm:^18.3.0":
   version: 18.3.0
   resolution: "@types/react-dom@npm:18.3.0"
   dependencies:
@@ -1294,7 +1302,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18":
+"@types/react@npm:*, @types/react@npm:^18.3.3":
   version: 18.3.3
   resolution: "@types/react@npm:18.3.3"
   dependencies:
@@ -1575,31 +1583,32 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "aap-oppgavestyring-frontend@workspace:."
   dependencies:
-    "@navikt/aap-felles-prettier": "npm:^1.4.0"
-    "@navikt/aap-felles-react": "npm:^1.4.0"
-    "@navikt/aap-felles-utils": "npm:^1.4.0"
+    "@navikt/aap-felles-css": "npm:^1.5.1"
+    "@navikt/aap-felles-prettier": "npm:^1.5.1"
+    "@navikt/aap-felles-react": "npm:^1.5.1"
+    "@navikt/aap-felles-utils": "npm:^1.5.1"
     "@navikt/aksel-icons": "npm:^6.13.0"
     "@navikt/ds-css": "npm:^6.13.0"
     "@navikt/ds-react": "npm:^6.13.0"
-    "@navikt/eslint-config-aap": "npm:^1.4.0"
+    "@navikt/eslint-config-aap": "npm:^1.5.1"
     "@navikt/oasis": "npm:^3.3.0"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/jest-dom": "npm:^6.4.8"
     "@testing-library/react": "npm:^16.0.0"
     "@testing-library/user-event": "npm:^14.5.2"
-    "@types/node": "npm:^20"
-    "@types/react": "npm:^18"
-    "@types/react-dom": "npm:^18"
+    "@types/node": "npm:^20.14.12"
+    "@types/react": "npm:^18.3.3"
+    "@types/react-dom": "npm:^18.3.0"
     "@typescript-eslint/eslint-plugin": "npm:^7.17.0"
     "@typescript-eslint/parser": "npm:^7.17.0"
     "@vitejs/plugin-react": "npm:^4.3.1"
-    eslint: "npm:^8"
+    eslint: "npm:^8.57.0"
     eslint-config-next: "npm:14.2.5"
     eslint-config-standard: "npm:^17.1.0"
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-jest: "npm:^28.6.0"
     eslint-plugin-jsx-a11y: "npm:^6.9.0"
-    eslint-plugin-n: "npm:^17.9.0"
+    eslint-plugin-n: "npm:^17.10.0"
     eslint-plugin-promise: "npm:^6.6.0"
     eslint-plugin-react: "npm:^7.35.0"
     eslint-plugin-react-hooks: "npm:^4.6.2"
@@ -1607,12 +1616,12 @@ __metadata:
     jsdom: "npm:^24.1.1"
     lint-staged: "npm:^15.2.7"
     next: "npm:14.2.5"
-    pino-pretty: "npm:^11.2.1"
+    pino-pretty: "npm:^11.2.2"
     prettier: "npm:^3.3.3"
-    react: "npm:^18"
-    react-dom: "npm:^18"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     swr: "npm:^2.2.5"
-    typescript: "npm:^5"
+    typescript: "npm:^5.5.4"
     vite-tsconfig-paths: "npm:^4.3.2"
     vitest: "npm:^2.0.4"
   languageName: unknown
@@ -2995,21 +3004,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^17.9.0":
-  version: 17.9.0
-  resolution: "eslint-plugin-n@npm:17.9.0"
+"eslint-plugin-n@npm:^17.10.0":
+  version: 17.10.0
+  resolution: "eslint-plugin-n@npm:17.10.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.4.0"
     enhanced-resolve: "npm:^5.17.0"
     eslint-plugin-es-x: "npm:^7.5.0"
     get-tsconfig: "npm:^4.7.0"
-    globals: "npm:^15.0.0"
+    globals: "npm:^15.8.0"
     ignore: "npm:^5.2.4"
-    minimatch: "npm:^9.0.0"
+    minimatch: "npm:^9.0.5"
     semver: "npm:^7.5.3"
   peerDependencies:
     eslint: ">=8.23.0"
-  checksum: 10c0/8c9dc278eaf7ce7e0621127f82e56a7a117cecbd4dfa880145d930a62fc93ef47057f18805bf1bba944cbafa0ae9115c9bd52628193e1206810bb7bc3e1d2f25
+  checksum: 10c0/498bcf8ef600ecc2e7899166dd24bd11505f80b6f8a0cf7c0fc3e5af5428579b2294bb6cb1de741e346ebd77de8d3dfe63eee9f6b124adb898c0307031876f73
   languageName: node
   linkType: hard
 
@@ -3076,7 +3085,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8":
+"eslint@npm:^8.57.0":
   version: 8.57.0
   resolution: "eslint@npm:8.57.0"
   dependencies:
@@ -3581,7 +3590,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^15.0.0":
+"globals@npm:^15.8.0":
   version: 15.8.0
   resolution: "globals@npm:15.8.0"
   checksum: 10c0/b96ec86e1244806920a80a1a7c4d64b68c55336887cfa1b52886927e0f9035133e4acd354fcda63b49e53df2089c41a11dd2b02281a6439a58cbc0d63ae083cb
@@ -4598,7 +4607,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^9.0.0, minimatch@npm:^9.0.1, minimatch@npm:^9.0.4":
+"minimatch@npm:^9.0.1, minimatch@npm:^9.0.4, minimatch@npm:^9.0.5":
   version: 9.0.5
   resolution: "minimatch@npm:9.0.5"
   dependencies:
@@ -5227,9 +5236,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino-pretty@npm:^11.2.1":
-  version: 11.2.1
-  resolution: "pino-pretty@npm:11.2.1"
+"pino-pretty@npm:^11.2.2":
+  version: 11.2.2
+  resolution: "pino-pretty@npm:11.2.2"
   dependencies:
     colorette: "npm:^2.0.7"
     dateformat: "npm:^4.6.3"
@@ -5247,7 +5256,7 @@ __metadata:
     strip-json-comments: "npm:^3.1.1"
   bin:
     pino-pretty: bin.js
-  checksum: 10c0/6c7f15b5bf8a007c8b7157eae445675b13cd95097ffa512d5ebd661f9e7abd328fa27592b25708756a09f098f87cb03ca81837518cd725c16e3f801129b941d4
+  checksum: 10c0/3ce1769907886a5584f6c8123d9bc987712ad10a375797733a0fe95a238df587dac8e2b709bab291c4e30d41b0cf65808c708c96f8eb98b2778b6df60afa7e66
   languageName: node
   linkType: hard
 
@@ -5449,7 +5458,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18":
+"react-dom@npm:^18.3.1":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -5491,7 +5500,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18, react@npm:^18.3.1":
+"react@npm:^18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:
@@ -6524,7 +6533,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5":
+"typescript@npm:^5.5.4":
   version: 5.5.4
   resolution: "typescript@npm:5.5.4"
   bin:
@@ -6534,7 +6543,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.5.4#optional!builtin<compat/typescript>":
   version: 5.5.4
   resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
   bin:
