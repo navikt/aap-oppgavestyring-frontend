@@ -1,8 +1,7 @@
 import { Alert, BodyShort, Button, Modal } from '@navikt/ds-react';
 import { FormEvent, useContext, useRef, useState } from 'react';
 import { KøContext } from 'components/oppgavebehandling/KøContext';
-import { useConfigForm } from '@navikt/aap-felles-react';
-import { FormField } from '@navikt/aap-felles-react';
+import { useConfigForm, FormField } from '@navikt/aap-felles-react';
 import { fetchProxy } from 'lib/clientApi';
 import { byggFilterFraKø } from 'components/oppgavebehandling/lib/filter';
 import { useSWRConfig } from 'swr';

@@ -17,7 +17,7 @@ interface Props {
   erAvdelingsleder?: boolean;
 }
 
-export interface FilterOptions {
+interface FilterOptions {
   value: string;
   label: string;
 }
@@ -29,7 +29,7 @@ interface FilterType {
   label: string;
 }
 
-export interface FlervalgsfilterType extends FilterType {
+interface FlervalgsfilterType extends FilterType {
   options: FilterOptions[];
 }
 

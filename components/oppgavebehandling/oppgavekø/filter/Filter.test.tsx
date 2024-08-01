@@ -1,7 +1,7 @@
 import { describe, test, expect, vi } from 'vitest';
 import React, { ReactElement } from 'react';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 
 import { Filter } from 'components/oppgavebehandling/oppgavekø/filter/Filter';
 import { DEFAULT_KØ, Kø, KøContext } from 'components/oppgavebehandling/KøContext';

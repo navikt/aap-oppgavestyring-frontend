@@ -1,11 +1,10 @@
 import { requestAzureOboToken, validateToken } from '@navikt/oasis';
-import { getAccessTokenOrRedirectToLogin } from '@navikt/aap-felles-utils';
+import { getAccessTokenOrRedirectToLogin, logError, isLocal } from '@navikt/aap-felles-utils';
 import { headers } from 'next/headers';
-import { logError, isLocal } from '@navikt/aap-felles-utils';
 
 const NUMBER_OF_RETRIES = 3;
 
-export const getOnBefalfOfToken = async (audience: string, url: string): Promise<string> => {
+const getOnBefalfOfToken = async (audience: string, url: string): Promise<string> => {
   const token = getAccessTokenOrRedirectToLogin(headers());
   if (!token) {
     logError(`Token for ${url} er undefined`);
