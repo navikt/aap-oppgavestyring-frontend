@@ -14,9 +14,9 @@
   },
   "prettier": "@navikt/aap-felles-prettier",
   "dependencies": {
-    "@navikt/aap-felles-css": "^1.5.2",
-    "@navikt/aap-felles-react": "^1.5.2",
-    "@navikt/aap-felles-utils": "^1.5.2",
+    "@navikt/aap-felles-css": "^1.5.3",
+    "@navikt/aap-felles-react": "^1.5.3",
+    "@navikt/aap-felles-utils": "^1.5.3",
     "@navikt/aksel-icons": "^6.13.0",
     "@navikt/ds-css": "^6.13.0",
     "@navikt/ds-react": "^6.13.0",
@@ -28,8 +28,8 @@
     "swr": "^2.2.5"
   },
   "devDependencies": {
-    "@navikt/aap-felles-prettier": "^1.5.2",
-    "@navikt/eslint-config-aap": "^1.5.2",
+    "@navikt/aap-felles-prettier": "^1.5.3",
+    "@navikt/eslint-config-aap": "^1.5.3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
