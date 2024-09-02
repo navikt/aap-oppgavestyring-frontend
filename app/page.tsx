@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { VelgOppgaveKø } from 'components/velgoppgavekø/VelgOppgaveKø';
 
 export default function Page() {
-  redirect('/oppgaveliste');
+  return <VelgOppgaveKø />;
 }
