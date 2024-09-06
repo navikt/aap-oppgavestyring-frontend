@@ -18,7 +18,7 @@ export const VelgOppgaveKø = () => {
 
           <div>
             <Button size="small" onClick={() => window.alert('Neste oppgave!')}>
-              Behadle neste sak
+              Behandle neste sak
             </Button>
           </div>
         </div>
