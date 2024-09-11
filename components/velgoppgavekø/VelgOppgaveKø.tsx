@@ -2,9 +2,16 @@
 import { BodyShort, Button, Heading, Label, Select } from '@navikt/ds-react';
 
 import styles from './VelgOppgaveKø.module.css';
+import { useState } from 'react';
+import { Kø, velgNesteOppgave } from 'lib/services/oppgaveService/oppgaveService';
 
-export const VelgOppgaveKø = () => {
-  // TODO: Be om neste oppgave fra backend
+interface Props {
+  køer: Kø[];
+}
+
+export const VelgOppgaveKø = ({ køer }: Props) => {
+  const [aktivKø, setAktivKø] = useState<string>(køer[0]?.id ?? '');
+
   return (
     <div>
       <Heading level="2" size="medium" spacing>
@@ -12,12 +19,22 @@ export const VelgOppgaveKø = () => {
       </Heading>
       <div className={styles.container}>
         <div className={styles.column}>
-          <Select label="Velg oppgavekø" size="small" description="Du jobber på følgende kø">
-            <option value="standard">Standard AAP oppgavekø (Eldst først)</option>
+          <Select
+            label="Velg oppgavekø"
+            size="small"
+            description="Du jobber på følgende kø"
+            value={aktivKø}
+            onChange={(event) => setAktivKø(event.target.value)}
+          >
+            {køer.map((kø) => (
+              <option key={kø.id} value={kø.id}>
+                {kø.navn}
+              </option>
+            ))}
           </Select>
 
           <div>
-            <Button size="small" onClick={() => window.alert('Neste oppgave!')}>
+            <Button size="small" onClick={() => velgNesteOppgave(aktivKø)}>
               Behandle neste sak
             </Button>
           </div>
