@@ -1,6 +1,7 @@
 import { requestAzureOboToken, validateToken } from '@navikt/oasis';
 import { getAccessTokenOrRedirectToLogin, logError, isLocal } from '@navikt/aap-felles-utils';
 import { headers } from 'next/headers';
+import { hentLocalToken } from 'lib/services/auth';
 
 const NUMBER_OF_RETRIES = 3;
 
@@ -32,7 +33,7 @@ export const fetchProxy = async <ResponseBody>(
   method: 'GET' | 'POST' | 'PATCH' | 'DELETE' = 'GET',
   requestBody?: object
 ): Promise<ResponseBody> => {
-  const oboToken = isLocal() ? 'fake token' : await getOnBefalfOfToken(scope, url);
+  const oboToken = isLocal() ? await hentLocalToken() : await getOnBefalfOfToken(scope, url);
   return await fetchWithRetry<ResponseBody>(url, method, oboToken, NUMBER_OF_RETRIES, requestBody);
 };
 

@@ -1,16 +1,16 @@
-export interface Kø {
-  id: string;
-  navn: string;
-}
+import { fetchProxy } from 'lib/services/fetchProxy';
+import { Kø, NesteOppgaveResponse } from 'lib/types/types';
+
+const oppgaveApiBaseUrl = process.env.OPPGAVE_API_BASE_URL;
+const oppgaveApiScope = process.env.OPPGAVE_API_SCOPE ?? '';
 
 export const hentKøer = async (): Promise<Kø[]> => {
-  return await Promise.resolve([
-    { id: '1', navn: 'Standard AAP oppgavekø (Eldst først)' },
-    { id: '2', navn: 'Postmottak (Eldst først)' },
-  ]);
+  const url = `${oppgaveApiBaseUrl}/filter`;
+  return await fetchProxy<Kø[]>(url, oppgaveApiScope, 'GET');
 };
 
-export const velgNesteOppgave = async (køId: string): Promise<unknown> => {
+export const velgNesteOppgave = async (køId: number): Promise<NesteOppgaveResponse> => {
   console.log('Behandler neste oppgave', køId);
-  return await Promise.resolve({});
+  const url = `${oppgaveApiBaseUrl}/neste-oppgave`;
+  return await fetchProxy<NesteOppgaveResponse>(url, oppgaveApiScope, 'POST', { filterId: køId });
 };

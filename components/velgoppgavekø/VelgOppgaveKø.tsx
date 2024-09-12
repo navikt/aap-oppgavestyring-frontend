@@ -3,14 +3,14 @@ import { BodyShort, Button, Heading, Label, Select } from '@navikt/ds-react';
 
 import styles from './VelgOppgaveKø.module.css';
 import { useState } from 'react';
-import { Kø, velgNesteOppgave } from 'lib/services/oppgaveService/oppgaveService';
+import { Kø } from 'lib/types/types';
 
 interface Props {
   køer: Kø[];
 }
 
 export const VelgOppgaveKø = ({ køer }: Props) => {
-  const [aktivKø, setAktivKø] = useState<string>(køer[0]?.id ?? '');
+  const [aktivKø, setAktivKø] = useState<number>(køer[0]?.id ?? 0);
 
   return (
     <div>
@@ -24,7 +24,7 @@ export const VelgOppgaveKø = ({ køer }: Props) => {
             size="small"
             description="Du jobber på følgende kø"
             value={aktivKø}
-            onChange={(event) => setAktivKø(event.target.value)}
+            onChange={(event) => setAktivKø(parseInt(event.target.value))}
           >
             {køer.map((kø) => (
               <option key={kø.id} value={kø.id}>
@@ -34,7 +34,7 @@ export const VelgOppgaveKø = ({ køer }: Props) => {
           </Select>
 
           <div>
-            <Button size="small" onClick={() => velgNesteOppgave(aktivKø)}>
+            <Button size="small" onClick={() => console.log(aktivKø)}>
               Behandle neste sak
             </Button>
           </div>
