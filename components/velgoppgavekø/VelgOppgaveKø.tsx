@@ -4,6 +4,7 @@ import { BodyShort, Button, Heading, Label, Select } from '@navikt/ds-react';
 import styles from './VelgOppgaveKø.module.css';
 import { useState } from 'react';
 import { Kø } from 'lib/types/types';
+import { fetchProxy } from 'lib/clientApi';
 
 interface Props {
   køer: Kø[];
@@ -34,7 +35,7 @@ export const VelgOppgaveKø = ({ køer }: Props) => {
           </Select>
 
           <div>
-            <Button size="small" onClick={() => console.log(aktivKø)}>
+            <Button size="small" onClick={() => fetchProxy('/api/oppgave/neste', 'POST', { køId: aktivKø })}>
               Behandle neste sak
             </Button>
           </div>

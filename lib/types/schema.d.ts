@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  '/avklaringsbehov': {
+  '/opprett-oppgave': {
     parameters: {
       query?: never;
       header?: never;
@@ -22,7 +22,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          'application/json': components['schemas']['no.nav.aap.oppgave.opprett.AvklaringsbehovRequest'];
+          'application/json': components['schemas']['no.nav.aap.oppgave.opprett.OpprettOppgaveDto'];
         };
       };
       responses: {
@@ -32,7 +32,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            'application/json': components['schemas']['no.nav.aap.oppgave.OppgaveId'];
+            'application/json': components['schemas']['no.nav.aap.oppgave.verdityper.OppgaveId'];
           };
         };
       };
@@ -61,7 +61,7 @@ export interface paths {
       };
       requestBody?: {
         content: {
-          'application/json': components['schemas']['no.nav.aap.oppgave.plukk.NesteOppgaveRequest'];
+          'application/json': components['schemas']['no.nav.aap.oppgave.plukk.FinnNesteOppgaveDto'];
         };
       };
       responses: {
@@ -71,7 +71,81 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            'application/json': components['schemas']['no.nav.aap.oppgave.plukk.NesteOppgaveResponse'];
+            'application/json': components['schemas']['no.nav.aap.oppgave.plukk.NesteOppgaveDto'];
+          };
+        };
+      };
+    };
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/mine-oppgaver': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: {
+      parameters: {
+        query?: never;
+        header?: never;
+        path?: never;
+        cookie?: never;
+      };
+      requestBody?: never;
+      responses: {
+        /** @description OK */
+        200: {
+          headers: {
+            [name: string]: unknown;
+          };
+          content: {
+            'application/json': components['schemas']['no.nav.aap.oppgave.OppgaveDto'][];
+          };
+        };
+      };
+    };
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/avslutt-oppgave': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: {
+      parameters: {
+        query?: never;
+        header?: never;
+        path?: never;
+        cookie?: never;
+      };
+      requestBody?: {
+        content: {
+          'application/json': components['schemas']['no.nav.aap.oppgave.AvsluttOppgaveDto'];
+        };
+      };
+      responses: {
+        /** @description OK */
+        200: {
+          headers: {
+            [name: string]: unknown;
+          };
+          content: {
+            'application/json': components['schemas']['no.nav.aap.oppgave.verdityper.OppgaveId'][];
           };
         };
       };
@@ -104,7 +178,7 @@ export interface paths {
             [name: string]: unknown;
           };
           content: {
-            'application/json': components['schemas']['no.nav.aap.oppgave.filter.Filter'][];
+            'application/json': components['schemas']['no.nav.aap.oppgave.filter.FilterDto'][];
           };
         };
       };
@@ -121,43 +195,85 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
-    'no.nav.aap.oppgave.OppgaveId': {
+    'no.nav.aap.oppgave.AvsluttOppgaveDto': {
+      avklaringsbehovType: components['schemas']['no.nav.aap.oppgave.verdityper.AvklaringsbehovType'];
+      /** Format: uuid */
+      behandlingRef?: string | null;
       /** Format: int64 */
-      id: number;
+      journalpostId?: number | null;
+      saksnummer?: string | null;
     };
-    'no.nav.aap.oppgave.filter.Filter': {
-      avklaringsbehovKoder: components['schemas']['no.nav.aap.oppgave.opprett.AvklaringsbehovKode'][];
+    'no.nav.aap.oppgave.OppgaveDto': {
+      avklaringsbehovType: components['schemas']['no.nav.aap.oppgave.verdityper.AvklaringsbehovType'];
+      /**
+       * Format: date-time
+       * @example 2024-09-13T09:17:33.623281
+       */
+      behandlingOpprettet: string;
+      /** Format: uuid */
+      behandlingRef?: string | null;
+      endretAv?: string | null;
+      /**
+       * Format: date-time
+       * @example 2024-09-13T09:17:33.623281
+       */
+      endretTidspunkt?: string | null;
+      id?: components['schemas']['no.nav.aap.oppgave.verdityper.OppgaveId'];
+      /** Format: int64 */
+      journalpostId?: number | null;
+      opprettetAv: string;
+      /**
+       * Format: date-time
+       * @example 2024-09-13T09:17:33.623281
+       */
+      opprettetTidspunkt: string;
+      reservertAv?: string | null;
+      /**
+       * Format: date-time
+       * @example 2024-09-13T09:17:33.623281
+       */
+      reservertTidspunkt?: string | null;
+      saksnummer?: string | null;
+      /** @enum {string} */
+      status: 'OPPRETTET' | 'AVSLUTTET';
+    };
+    'no.nav.aap.oppgave.filter.FilterDto': {
+      avklaringsbehovKoder: components['schemas']['no.nav.aap.oppgave.verdityper.AvklaringsbehovType'][];
       /** Format: int64 */
       id: number;
       navn: string;
     };
-    'no.nav.aap.oppgave.opprett.AvklaringsbehovKode': {
-      kode: string;
-    };
-    'no.nav.aap.oppgave.opprett.AvklaringsbehovRequest': {
-      avklaringsbehovKode: components['schemas']['no.nav.aap.oppgave.opprett.AvklaringsbehovKode'];
+    'no.nav.aap.oppgave.opprett.OpprettOppgaveDto': {
+      avklaringsbehovType: components['schemas']['no.nav.aap.oppgave.verdityper.AvklaringsbehovType'];
       /**
        * Format: date-time
-       * @example 2024-09-12T14:57:46.175126
+       * @example 2024-09-13T09:17:33.623281
        */
       behandlingOpprettet: string;
-      behandlingRef: components['schemas']['no.nav.aap.oppgave.opprett.BehandlingRef'];
-      saksnummer: components['schemas']['no.nav.aap.oppgave.opprett.Saksnummer'];
-    };
-    'no.nav.aap.oppgave.opprett.BehandlingRef': {
       /** Format: uuid */
-      uuid: string;
+      behandlingRef?: string | null;
+      /** Format: int64 */
+      journalpostId?: number | null;
+      saksnummer?: string | null;
     };
-    'no.nav.aap.oppgave.opprett.Saksnummer': Record<string, never>;
-    'no.nav.aap.oppgave.plukk.NesteOppgaveRequest': {
+    'no.nav.aap.oppgave.plukk.FinnNesteOppgaveDto': {
       /** Format: int64 */
       filterId: number;
     };
-    'no.nav.aap.oppgave.plukk.NesteOppgaveResponse': {
-      /** @enum {string} */
-      kilde: 'BEHANDLINGSFLYT' | 'MOTTAK';
-      oppgaveId: components['schemas']['no.nav.aap.oppgave.OppgaveId'];
-      referanse: string;
+    'no.nav.aap.oppgave.plukk.NesteOppgaveDto': {
+      /** Format: uuid */
+      behandlingRef?: string | null;
+      /** Format: int64 */
+      journalpostId?: number | null;
+      oppgaveId: components['schemas']['no.nav.aap.oppgave.verdityper.OppgaveId'];
+      saksnummer?: string | null;
+    };
+    'no.nav.aap.oppgave.verdityper.AvklaringsbehovType': {
+      kode: string;
+    };
+    'no.nav.aap.oppgave.verdityper.OppgaveId': {
+      /** Format: int64 */
+      id: number;
     };
   };
   responses: never;
