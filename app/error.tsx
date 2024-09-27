@@ -2,7 +2,7 @@
 
 import { BodyShort, Button, Heading } from '@navikt/ds-react';
 
-export default function GlobalError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   return (
     <html lang={'no'}>
       <body>
