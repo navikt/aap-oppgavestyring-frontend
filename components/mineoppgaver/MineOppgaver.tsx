@@ -15,6 +15,7 @@ export const MineOppgaver = ({oppgaver}: Props) => {
             await fetchProxy(`/api/oppgave/${id}/avreserver`, 'POST')
         setLoadingID(null);
     }
+    console.log('oppgaver', oppgaver)
     return (
         <div>
             <Heading size={'medium'} level={'2'} spacing>Mine oppgaver(NB: Under arbeid, trenger ikke testes)</Heading>
