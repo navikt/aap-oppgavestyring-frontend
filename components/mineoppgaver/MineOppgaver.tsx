@@ -27,10 +27,10 @@ export const MineOppgaver = ({oppgaver}: Props) => {
                     <Table.DataCell>{`${oppgave.saksnummer}`}</Table.DataCell>
                     <Table.DataCell>
                         <Button
-                            type={'button'}
-                            size={'small'}
-                            loading={oppgave.id && loadingID === oppgave.id.id}
-                            onClick={() => oppgave.id ? frigiOppgave(oppgave.id.id) : null}
+                          type={'button'}
+                          size={'small'}
+                          loading={oppgave.id && loadingID === oppgave.id.id}
+                          onClick={() => oppgave.id ? frigiOppgave(oppgave.id.id) : null}
                         >Frigi</Button>
                     </Table.DataCell>
                 </Table.Row>)}

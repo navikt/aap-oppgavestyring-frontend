@@ -17,7 +17,7 @@ export async function POST(req: NextRequest, { params }: Params) {
 
     try {
         const res = await avreserverOppgave(params.id)
-        // return new Response(JSON.stringify(res), { status: 200 });
+        return new Response(JSON.stringify(res), { status: 200 });
     } catch (error) {
         logError('Feil ved avreservering av oppgave', error);
         return new Response(JSON.stringify({ message: JSON.stringify(error) }), { status: 500 });
