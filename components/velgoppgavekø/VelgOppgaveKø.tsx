@@ -15,6 +15,7 @@ export const VelgOppgaveKø = ({ køer }: Props) => {
   const [aktivKø, setAktivKø] = useState<number>(køer[0]?.id ?? 0);
   async function plukkOgGåTilOppgave() {
     const oppgave = await fetchProxy<Oppgave>('/api/oppgave/neste', 'POST', { køId: aktivKø });
+    console.log('neste oppgave', oppgave);
     if (oppgave) {
       window.location.assign(buildSaksbehandlingsURL(oppgave));
     }
