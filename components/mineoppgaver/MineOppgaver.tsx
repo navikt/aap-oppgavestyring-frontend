@@ -13,7 +13,11 @@ export const MineOppgaver = ({ oppgaver }: Props) => {
   const [loadingID, setLoadingID] = useState<number | null>(null);
   async function frigiOppgave(oppgave: Oppgave) {
     if (oppgave.id) setLoadingID(oppgave.id);
-    await avregistrerOppgaveFetch(oppgave);
+    try {
+      await avregistrerOppgaveFetch(oppgave);
+    } catch (err) {
+      setLoadingID(null);
+    }
     setLoadingID(null);
   }
   function redirectTilOppgave(oppgave: Oppgave) {

@@ -31,5 +31,5 @@ export async function avregistrerOppgaveFetch(oppgave: Oppgave) {
     saksnummer: oppgave.saksnummer,
     referanse: oppgave.behandlingRef,
   };
-  return fetchProxy('/api/oppgave/avregistrer', 'POST', body);
+  return fetchProxy('/api/oppgave/avreserver', 'POST', body);
 }
