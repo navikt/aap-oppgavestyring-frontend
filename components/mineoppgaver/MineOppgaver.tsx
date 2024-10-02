@@ -22,7 +22,6 @@ export const MineOppgaver = ({ oppgaver }: Props) => {
       window.location.assign(buildSaksbehandlingsURL(oppgave));
     }
   }
-  console.log('oppgaver', oppgaver);
   return (
     <div>
       <Heading size={'medium'} level={'2'} spacing>

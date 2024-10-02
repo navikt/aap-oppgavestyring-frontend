@@ -11,7 +11,7 @@ export const ÅpneOppgaver = ({ oppgaver }: Props) => {
   return (
     <div>
       <Heading level={'2'} size={'medium'}>
-        Mine oppgaver(NB: Under arbeid, trenger ikke testes)
+        Alle åpne oppgaver(NB: Under arbeid, trenger ikke testes)
       </Heading>
       <Table>
         <Table.Header>
