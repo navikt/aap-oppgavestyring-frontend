@@ -4,3 +4,4 @@ export type NesteOppgaveResponse = components['schemas']['no.nav.aap.oppgave.plu
 
 export type Kø = components['schemas']['no.nav.aap.oppgave.filter.FilterDto'];
 export type Oppgave = components['schemas']['no.nav.aap.oppgave.OppgaveDto'];
+export type AvklaringsbehovReferanse = components['schemas']['no.nav.aap.oppgave.AvklaringsbehovReferanseDto'];

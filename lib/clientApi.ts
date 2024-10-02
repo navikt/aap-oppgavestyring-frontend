@@ -1,3 +1,5 @@
+import { AvklaringsbehovReferanse, Oppgave } from './types/types';
+
 export async function fetchProxy<ResponseBody>(
   url: string,
   method: 'GET' | 'POST' | 'PATCH' | 'DELETE',
@@ -20,4 +22,14 @@ export async function fetchProxy<ResponseBody>(
   } catch (e) {
     throw new Error('Noe gikk galt.');
   }
+}
+
+export async function avregistrerOppgaveFetch(oppgave: Oppgave) {
+  const body: AvklaringsbehovReferanse = {
+    avklaringsbehovKode: oppgave.avklaringsbehovKode,
+    journalpostId: oppgave.journalpostId,
+    saksnummer: oppgave.saksnummer,
+    referanse: oppgave.behandlingRef,
+  };
+  return fetchProxy('/api/oppgave/avregistrer', 'POST', body);
 }
