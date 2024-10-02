@@ -252,7 +252,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["no.nav.aap.oppgave.verdityper.OppgaveId"][];
+                        "application/json": components["schemas"]["no.nav.aap.oppgave.OppgaveId"][];
                     };
                 };
             };
@@ -291,7 +291,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["no.nav.aap.oppgave.verdityper.OppgaveId"][];
+                        "application/json": components["schemas"]["no.nav.aap.oppgave.OppgaveId"][];
                     };
                 };
             };
@@ -322,12 +322,12 @@ export interface components {
             behandlingType: "Førstegangsbehandling" | "Revurdering" | "Tilbakekreving" | "Klage";
             /**
              * Format: date-time
-             * @example 2024-10-02T09:49:40.717262
+             * @example 2024-10-02T13:05:33.772885
              */
             hendelsesTidspunkt: string;
             /**
              * Format: date-time
-             * @example 2024-10-02T09:49:40.717262
+             * @example 2024-10-02T13:05:33.772885
              */
             opprettetTidspunkt: string;
             personIdent: string;
@@ -355,13 +355,13 @@ export interface components {
             status: "OPPRETTET" | "AVSLUTTET" | "TOTRINNS_VURDERT" | "SENDT_TILBAKE_FRA_BESLUTTER" | "KVALITETSSIKRET" | "SENDT_TILBAKE_FRA_KVALITETSSIKRER" | "AVBRUTT";
             /**
              * Format: date-time
-             * @example 2024-10-02T09:49:40.717262
+             * @example 2024-10-02T13:05:33.772885
              */
             tidsstempel: string;
         };
         "no.nav.aap.behandlingsflyt.kontrakt.sak.Saksnummer": Record<string, never>;
         "no.nav.aap.oppgave.AvklaringsbehovReferanseDto": {
-            avklaringsbehovKode: components["schemas"]["no.nav.aap.oppgave.verdityper.AvklaringsbehovKode"];
+            avklaringsbehovKode: string;
             /** Format: int64 */
             journalpostId?: number | null;
             /** Format: uuid */
@@ -373,10 +373,10 @@ export interface components {
             flyttTilIdent: string;
         };
         "no.nav.aap.oppgave.OppgaveDto": {
-            avklaringsbehovKode: components["schemas"]["no.nav.aap.oppgave.verdityper.AvklaringsbehovKode"];
+            avklaringsbehovKode: string;
             /**
              * Format: date-time
-             * @example 2024-10-02T09:49:40.717262
+             * @example 2024-10-02T13:05:33.772885
              */
             behandlingOpprettet: string;
             /** Format: uuid */
@@ -384,30 +384,35 @@ export interface components {
             endretAv?: string | null;
             /**
              * Format: date-time
-             * @example 2024-10-02T09:49:40.717262
+             * @example 2024-10-02T13:05:33.772885
              */
             endretTidspunkt?: string | null;
-            id?: components["schemas"]["no.nav.aap.oppgave.verdityper.OppgaveId"];
+            /** Format: int64 */
+            id?: number | null;
             /** Format: int64 */
             journalpostId?: number | null;
             opprettetAv: string;
             /**
              * Format: date-time
-             * @example 2024-10-02T09:49:40.717262
+             * @example 2024-10-02T13:05:33.772885
              */
             opprettetTidspunkt: string;
             reservertAv?: string | null;
             /**
              * Format: date-time
-             * @example 2024-10-02T09:49:40.717262
+             * @example 2024-10-02T13:05:33.772885
              */
             reservertTidspunkt?: string | null;
             saksnummer?: string | null;
             /** @enum {string} */
             status: "OPPRETTET" | "AVSLUTTET";
         };
+        "no.nav.aap.oppgave.OppgaveId": {
+            /** Format: int64 */
+            id: number;
+        };
         "no.nav.aap.oppgave.filter.FilterDto": {
-            avklaringsbehovKoder: components["schemas"]["no.nav.aap.oppgave.verdityper.AvklaringsbehovKode"][];
+            avklaringsbehovKoder: string[];
             /** Format: int64 */
             id: number;
             navn: string;
@@ -418,14 +423,8 @@ export interface components {
         };
         "no.nav.aap.oppgave.plukk.NesteOppgaveDto": {
             avklaringsbehovReferanse: components["schemas"]["no.nav.aap.oppgave.AvklaringsbehovReferanseDto"];
-            oppgaveId: components["schemas"]["no.nav.aap.oppgave.verdityper.OppgaveId"];
-        };
-        "no.nav.aap.oppgave.verdityper.AvklaringsbehovKode": {
-            kode: string;
-        };
-        "no.nav.aap.oppgave.verdityper.OppgaveId": {
             /** Format: int64 */
-            id: number;
+            oppgaveId: number;
         };
     };
     responses: never;

@@ -14,7 +14,7 @@ export const ÅpneOppgaver = ({ oppgaver }: Props) => {
         <Table.HeaderCell>Saksnummer</Table.HeaderCell>
       </Table.Header>
       {oppgaver.map((oppgave) => (
-        <Table.Row key={`${oppgave.id?.id}`}>
+        <Table.Row key={`${oppgave.id}`}>
           <Table.DataCell>{oppgave.saksnummer}</Table.DataCell>
         </Table.Row>
       ))}
