@@ -3,7 +3,7 @@
 import { Oppgave } from '../../lib/types/types';
 import { Button, Heading, Table } from '@navikt/ds-react';
 import { useState } from 'react';
-import { fetchProxy } from '../../lib/clientApi';
+import { avregistrerOppgaveFetch } from '../../lib/clientApi';
 import { buildSaksbehandlingsURL } from '../../lib/utils/urlBuilder';
 
 interface Props {
@@ -11,10 +11,9 @@ interface Props {
 }
 export const MineOppgaver = ({ oppgaver }: Props) => {
   const [loadingID, setLoadingID] = useState<number | null>(null);
-  async function frigiOppgave(id?: number | null) {
-    if (!id) return;
-    setLoadingID(id);
-    await fetchProxy(`/api/oppgave/${id}/avreserver`, 'POST');
+  async function frigiOppgave(oppgave: Oppgave) {
+    if (oppgave.id) setLoadingID(oppgave.id);
+    await avregistrerOppgaveFetch(oppgave);
     setLoadingID(null);
   }
   function redirectTilOppgave(oppgave: Oppgave) {
@@ -37,12 +36,7 @@ export const MineOppgaver = ({ oppgaver }: Props) => {
           <Table.Row key={`oppgave-${i}`}>
             <Table.DataCell>{`${oppgave.saksnummer}`}</Table.DataCell>
             <Table.DataCell>
-              <Button
-                type={'button'}
-                size={'small'}
-                loading={loadingID === oppgave.id}
-                onClick={() => redirectTilOppgave(oppgave)}
-              >
+              <Button type={'button'} size={'small'} onClick={() => redirectTilOppgave(oppgave)}>
                 Løs
               </Button>
             </Table.DataCell>
@@ -52,7 +46,7 @@ export const MineOppgaver = ({ oppgaver }: Props) => {
                 size={'small'}
                 variant={'secondary'}
                 loading={loadingID === oppgave.id}
-                onClick={() => frigiOppgave(oppgave.id)}
+                onClick={() => frigiOppgave(oppgave)}
               >
                 Frigi
               </Button>
