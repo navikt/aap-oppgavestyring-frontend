@@ -3,7 +3,7 @@ import { BodyShort, Button, Heading, Label, Select } from '@navikt/ds-react';
 
 import styles from './VelgOppgaveKø.module.css';
 import { useState } from 'react';
-import { Kø, Oppgave } from 'lib/types/types';
+import { Kø, NesteOppgaveResponse, Oppgave } from 'lib/types/types';
 import { fetchProxy } from 'lib/clientApi';
 import { buildSaksbehandlingsURL } from '../../lib/utils/urlBuilder';
 
@@ -14,10 +14,9 @@ interface Props {
 export const VelgOppgaveKø = ({ køer }: Props) => {
   const [aktivKø, setAktivKø] = useState<number>(køer[0]?.id ?? 0);
   async function plukkOgGåTilOppgave() {
-    const oppgave = await fetchProxy<Oppgave>('/api/oppgave/neste', 'POST', { køId: aktivKø });
-    console.log('neste oppgave', oppgave);
-    if (oppgave) {
-      window.location.assign(buildSaksbehandlingsURL(oppgave));
+    const nesteOppgave = await fetchProxy<NesteOppgaveResponse>('/api/oppgave/neste', 'POST', { køId: aktivKø });
+    if (nesteOppgave) {
+      window.location.assign(buildSaksbehandlingsURL(nesteOppgave.avklaringsbehovReferanse));
     }
   }
   return (
