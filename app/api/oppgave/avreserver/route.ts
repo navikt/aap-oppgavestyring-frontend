@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { isLocal, logError, logInfo } from '@navikt/aap-felles-utils';
+import { isLocal, logError } from '@navikt/aap-felles-utils';
 import { avreserverOppgave } from '../../../../lib/services/oppgaveService/oppgaveService';
 import { AvklaringsbehovReferanse } from '../../../../lib/types/types';
 

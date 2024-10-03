@@ -3,7 +3,7 @@ import { BodyShort, Button, Heading, Label, Select } from '@navikt/ds-react';
 
 import styles from './VelgOppgaveKø.module.css';
 import { useState } from 'react';
-import { Kø, NesteOppgaveResponse, Oppgave } from 'lib/types/types';
+import { Kø, NesteOppgaveResponse } from 'lib/types/types';
 import { fetchProxy } from 'lib/clientApi';
 import { buildSaksbehandlingsURL } from '../../lib/utils/urlBuilder';
 
