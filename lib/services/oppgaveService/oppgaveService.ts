@@ -1,4 +1,4 @@
-import { fetchProxy } from 'lib/services/fetchProxy';
+import { fetchProxy, fetchProxyNoRetry } from 'lib/services/fetchProxy';
 import { AvklaringsbehovReferanse, Kø, NesteOppgaveResponse, Oppgave } from 'lib/types/types';
 
 const oppgaveApiBaseUrl = process.env.OPPGAVE_API_BASE_URL;
@@ -10,7 +10,7 @@ export const hentKøer = async (): Promise<Kø[]> => {
 };
 export const hentMineOppgaver = async (): Promise<Oppgave[]> => {
   const url = `${oppgaveApiBaseUrl}/mine-oppgaver`;
-  return await fetchProxy<Oppgave[]>(url, oppgaveApiScope, 'GET');
+  return await fetchProxyNoRetry<Oppgave[]>(url, oppgaveApiScope, 'GET', undefined, 'oppgaveservice/mine-oppgaver');
 };
 export const hentÅpneOppgaver = async (): Promise<Oppgave[]> => {
   const url = `${oppgaveApiBaseUrl}/alle-oppgaver`;

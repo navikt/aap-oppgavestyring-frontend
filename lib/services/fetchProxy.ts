@@ -27,6 +27,50 @@ const getOnBefalfOfToken = async (audience: string, url: string): Promise<string
   return onBehalfOf.token;
 };
 
+export const fetchProxyNoRetry = async <ResponseBody>(
+  url: string,
+  scope: string,
+  method: 'GET' | 'POST' | 'PATCH' | 'DELETE' = 'GET',
+  requestBody?: object,
+  nextTag?: string
+): Promise<ResponseBody> => {
+  const oboToken = isLocal() ? await hentLocalToken() : await getOnBefalfOfToken(scope, url);
+  const next = {
+    revalidate: 0,
+    ...(nextTag ? { tags: [nextTag] } : {}),
+  };
+  const response = await fetch(url, {
+    method,
+    body: JSON.stringify(requestBody),
+    headers: {
+      Authorization: `Bearer ${oboToken}`,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    next,
+  });
+  if (response.status === 204) {
+    return undefined as ResponseBody;
+  }
+
+  const contentType = response.headers.get('content-type');
+  if (contentType && contentType.includes('text')) {
+    return (await response.text()) as ResponseBody;
+  }
+
+  if (!response.ok) {
+    if (response.status === 500) {
+      const responseJson = await response.json();
+      logError(`klarte ikke å hente ${url}: ${responseJson.message}`);
+      throw new Error(`Unable to fetch ${url}: ${responseJson.message}`);
+    }
+    if (response.status === 404) {
+      throw new Error(`Ikke funnet: ${url}`);
+    }
+  }
+
+  return await response.json();
+};
 export const fetchProxy = async <ResponseBody>(
   url: string,
   scope: string,
