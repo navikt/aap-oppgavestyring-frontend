@@ -52,5 +52,4 @@ spec:
   accessPolicy:
     outbound:
       rules:
-        - application: "oppgavestyring"
         - application: "oppgave"
