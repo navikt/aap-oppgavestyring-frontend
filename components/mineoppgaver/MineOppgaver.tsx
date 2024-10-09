@@ -7,6 +7,7 @@ import { avregistrerOppgaveFetch } from '../../lib/clientApi';
 import { buildSaksbehandlingsURL } from '../../lib/utils/urlBuilder';
 import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { formaterDato } from '../../lib/utils/date';
+import { revalidateMineOppgaver } from '../../lib/actions/actions';
 
 interface Props {
   oppgaver: Oppgave[];
@@ -61,7 +62,12 @@ export const MineOppgaver = ({ oppgaver }: Props) => {
                     </Button>
                     <Dropdown.Menu>
                       <Dropdown.Menu.GroupedList>
-                        <Dropdown.Menu.GroupedList.Item onClick={() => frigiOppgave(oppgave)}>
+                        <Dropdown.Menu.GroupedList.Item
+                          onClick={async () => {
+                            await frigiOppgave(oppgave);
+                            revalidateMineOppgaver();
+                          }}
+                        >
                           Frigi oppgave
                           {loadingID === oppgave.id && <Loader />}
                         </Dropdown.Menu.GroupedList.Item>
