@@ -59,7 +59,7 @@ export const MineOppgaver = ({ oppgaver }: Props) => {
                   <Dropdown.Menu>
                     <Dropdown.Menu.GroupedList>
                       <Dropdown.Menu.GroupedList.Item onClick={() => frigiOppgave(oppgave)}>
-                        Legg på vent
+                        Frigi oppgave
                         {loadingID === oppgave.id && <Loader />}
                       </Dropdown.Menu.GroupedList.Item>
                     </Dropdown.Menu.GroupedList>
