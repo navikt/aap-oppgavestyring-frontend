@@ -9,7 +9,6 @@
 }
 
 .bodyContainer {
-  background-color: var(--a-bg-default);
   width: 100%;
   max-width: 1440px;
   margin: var(--a-spacing-4);

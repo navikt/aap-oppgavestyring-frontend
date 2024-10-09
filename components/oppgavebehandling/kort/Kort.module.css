@@ -3,6 +3,5 @@
 
   background-color: var(--a-bg-default);
 
-  border: 2px solid var(--a-border-subtle);
-  border-radius: 10px;
+  border: 2px solid var(--a-bg-default);
 }

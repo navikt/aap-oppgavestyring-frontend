@@ -41,6 +41,43 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/oppdater-postmottak-oppgaver": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: {
+                content: {
+                    "application/json": components["schemas"]["no.nav.aap.postmottak.kontrakt.hendelse.DokumentflytStoppetHendelse"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/neste-oppgave": {
         parameters: {
             query?: never;
@@ -322,12 +359,12 @@ export interface components {
             behandlingType: "Førstegangsbehandling" | "Revurdering" | "Tilbakekreving" | "Klage";
             /**
              * Format: date-time
-             * @example 2024-10-02T13:05:33.772885
+             * @example 2024-10-08T14:41:26.483466
              */
             hendelsesTidspunkt: string;
             /**
              * Format: date-time
-             * @example 2024-10-02T13:05:33.772885
+             * @example 2024-10-08T14:41:26.483466
              */
             opprettetTidspunkt: string;
             personIdent: string;
@@ -348,14 +385,14 @@ export interface components {
             endretAv: string;
             /**
              * Format: date
-             * @example 2024-10-02
+             * @example 2024-10-08
              */
             frist?: string | null;
             /** @enum {string} */
             status: "OPPRETTET" | "AVSLUTTET" | "TOTRINNS_VURDERT" | "SENDT_TILBAKE_FRA_BESLUTTER" | "KVALITETSSIKRET" | "SENDT_TILBAKE_FRA_KVALITETSSIKRER" | "AVBRUTT";
             /**
              * Format: date-time
-             * @example 2024-10-02T13:05:33.772885
+             * @example 2024-10-08T14:41:26.483466
              */
             tidsstempel: string;
         };
@@ -376,15 +413,17 @@ export interface components {
             avklaringsbehovKode: string;
             /**
              * Format: date-time
-             * @example 2024-10-02T13:05:33.772885
+             * @example 2024-10-08T14:41:26.483466
              */
             behandlingOpprettet: string;
             /** Format: uuid */
             behandlingRef?: string | null;
+            /** @enum {string} */
+            behandlingstype: "FØRSTEGANGSBEHANDLING" | "REVURDERING" | "TILBAKEKREVING" | "KLAGE" | "DOKUMENT_HÅNDTERING";
             endretAv?: string | null;
             /**
              * Format: date-time
-             * @example 2024-10-02T13:05:33.772885
+             * @example 2024-10-08T14:41:26.483466
              */
             endretTidspunkt?: string | null;
             /** Format: int64 */
@@ -394,13 +433,13 @@ export interface components {
             opprettetAv: string;
             /**
              * Format: date-time
-             * @example 2024-10-02T13:05:33.772885
+             * @example 2024-10-08T14:41:26.483466
              */
             opprettetTidspunkt: string;
             reservertAv?: string | null;
             /**
              * Format: date-time
-             * @example 2024-10-02T13:05:33.772885
+             * @example 2024-10-08T14:41:26.483466
              */
             reservertTidspunkt?: string | null;
             saksnummer?: string | null;
@@ -425,6 +464,56 @@ export interface components {
             avklaringsbehovReferanse: components["schemas"]["no.nav.aap.oppgave.AvklaringsbehovReferanseDto"];
             /** Format: int64 */
             oppgaveId: number;
+        };
+        "no.nav.aap.postmottak.kontrakt.hendelse.AvklaringsbehovHendelseDto": {
+            definisjon: components["schemas"]["no.nav.aap.postmottak.kontrakt.hendelse.DefinisjonDTO"];
+            endringer: components["schemas"]["no.nav.aap.postmottak.kontrakt.hendelse.EndringDTO"][];
+            /** @enum {string} */
+            status: "OPPRETTET" | "AVSLUTTET" | "SENDT_TILBAKE_FRA_BESLUTTER" | "SENDT_TILBAKE_FRA_KVALITETSSIKRER" | "AVBRUTT";
+        };
+        "no.nav.aap.postmottak.kontrakt.hendelse.DefinisjonDTO": {
+            /** @enum {string} */
+            behovType: "MANUELT_PÅKREVD" | "MANUELT_FRIVILLIG";
+            /** @enum {string} */
+            "l\u00F8sesISteg": "KATEGORISER_DOKUMENT" | "DIGITALISER_DOKUMENT" | "START_BEHANDLING" | "AVKLAR_TEMA" | "SETT_FAGSAK" | "ENDELIG_JOURNALFØRING" | "OVERLEVER_TIL_FAGSYSTEM" | "UDEFINERT" | "AVKLAR_SAK";
+            type: string;
+        };
+        "no.nav.aap.postmottak.kontrakt.hendelse.DokumentflytStoppetHendelse": {
+            avklaringsbehov: components["schemas"]["no.nav.aap.postmottak.kontrakt.hendelse.AvklaringsbehovHendelseDto"][];
+            /** @enum {string} */
+            behandlingType: "DokumentHåndtering";
+            /**
+             * Format: date-time
+             * @example 2024-10-08T14:41:26.483466
+             */
+            hendelsesTidspunkt: string;
+            /**
+             * Format: date-time
+             * @example 2024-10-08T14:41:26.483466
+             */
+            opprettetTidspunkt: string;
+            referanse: components["schemas"]["no.nav.aap.postmottak.kontrakt.journalpost.JournalpostId"];
+            /** @enum {string} */
+            status: "OPPRETTET" | "UTREDES" | "IVERKSETTES" | "AVSLUTTET";
+        };
+        "no.nav.aap.postmottak.kontrakt.hendelse.EndringDTO": {
+            endretAv: string;
+            /**
+             * Format: date
+             * @example 2024-10-08
+             */
+            frist?: string | null;
+            /** @enum {string} */
+            status: "OPPRETTET" | "AVSLUTTET" | "SENDT_TILBAKE_FRA_BESLUTTER" | "SENDT_TILBAKE_FRA_KVALITETSSIKRER" | "AVBRUTT";
+            /**
+             * Format: date-time
+             * @example 2024-10-08T14:41:26.483466
+             */
+            tidsstempel: string;
+        };
+        "no.nav.aap.postmottak.kontrakt.journalpost.JournalpostId": {
+            /** Format: int64 */
+            referanse: number;
         };
     };
     responses: never;

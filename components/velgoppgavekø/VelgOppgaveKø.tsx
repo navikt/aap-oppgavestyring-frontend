@@ -42,7 +42,7 @@ export const VelgOppgaveKø = ({ køer }: Props) => {
 
           <div>
             <Button size="small" onClick={() => plukkOgGåTilOppgave()}>
-              Behandle neste sak
+              Behandle neste oppgave
             </Button>
           </div>
         </div>
