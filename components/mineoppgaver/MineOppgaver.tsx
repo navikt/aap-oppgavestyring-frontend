@@ -5,7 +5,7 @@ import { Button, Dropdown, Heading, HStack, Loader, Table } from '@navikt/ds-rea
 import { useState } from 'react';
 import { avregistrerOppgaveFetch } from '../../lib/clientApi';
 import { buildSaksbehandlingsURL } from '../../lib/utils/urlBuilder';
-import { ChevronDownIcon, MenuElipsisHorizontalIcon } from '@navikt/aksel-icons';
+import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { formaterDato } from '../../lib/utils/date';
 
 interface Props {
