@@ -34,41 +34,45 @@ export const MineOppgaver = ({ oppgaver }: Props) => {
       </Heading>
       <Table size={'small'} zebraStripes>
         <Table.Header>
-          <Table.HeaderCell>SaksID</Table.HeaderCell>
-          <Table.HeaderCell>Type behandling</Table.HeaderCell>
-          <Table.HeaderCell>Avklaringsbehov</Table.HeaderCell>
-          <Table.HeaderCell>Dato opprettet</Table.HeaderCell>
-          <Table.HeaderCell></Table.HeaderCell>
-          <Table.HeaderCell></Table.HeaderCell>
-        </Table.Header>
-        {oppgaver.map((oppgave, i) => (
-          <Table.Row key={`oppgave-${i}`}>
-            <Table.DataCell>{`${oppgave.saksnummer}`}</Table.DataCell>
-            <Table.DataCell>{oppgave.behandlingstype}</Table.DataCell>
-            <Table.DataCell>{oppgave.avklaringsbehovKode}</Table.DataCell>
-            <Table.DataCell>{formaterDato(oppgave.opprettetTidspunkt)}</Table.DataCell>
-            <Table.DataCell>
-              <HStack gap={'1'}>
-                <Button type={'button'} size={'small'} onClick={() => redirectTilOppgave(oppgave)}>
-                  Behandle
-                </Button>
-                <Dropdown>
-                  <Button as={Dropdown.Toggle} size="small" variant="primary">
-                    <ChevronDownIcon title="Meny" />
-                  </Button>
-                  <Dropdown.Menu>
-                    <Dropdown.Menu.GroupedList>
-                      <Dropdown.Menu.GroupedList.Item onClick={() => frigiOppgave(oppgave)}>
-                        Frigi oppgave
-                        {loadingID === oppgave.id && <Loader />}
-                      </Dropdown.Menu.GroupedList.Item>
-                    </Dropdown.Menu.GroupedList>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </HStack>
-            </Table.DataCell>
+          <Table.Row>
+            <Table.HeaderCell>SaksID</Table.HeaderCell>
+            <Table.HeaderCell>Type behandling</Table.HeaderCell>
+            <Table.HeaderCell>Avklaringsbehov</Table.HeaderCell>
+            <Table.HeaderCell>Dato opprettet</Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
-        ))}
+        </Table.Header>
+        <Table.Body>
+          {oppgaver.map((oppgave, i) => (
+            <Table.Row key={`oppgave-${i}`}>
+              <Table.DataCell>{`${oppgave.saksnummer}`}</Table.DataCell>
+              <Table.DataCell>{oppgave.behandlingstype}</Table.DataCell>
+              <Table.DataCell>{oppgave.avklaringsbehovKode}</Table.DataCell>
+              <Table.DataCell>{formaterDato(oppgave.opprettetTidspunkt)}</Table.DataCell>
+              <Table.DataCell>
+                <HStack gap={'1'}>
+                  <Button type={'button'} size={'small'} onClick={() => redirectTilOppgave(oppgave)}>
+                    Behandle
+                  </Button>
+                  <Dropdown>
+                    <Button as={Dropdown.Toggle} size="small" variant="primary">
+                      <ChevronDownIcon title="Meny" />
+                    </Button>
+                    <Dropdown.Menu>
+                      <Dropdown.Menu.GroupedList>
+                        <Dropdown.Menu.GroupedList.Item onClick={() => frigiOppgave(oppgave)}>
+                          Frigi oppgave
+                          {loadingID === oppgave.id && <Loader />}
+                        </Dropdown.Menu.GroupedList.Item>
+                      </Dropdown.Menu.GroupedList>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </HStack>
+              </Table.DataCell>
+            </Table.Row>
+          ))}
+        </Table.Body>
       </Table>
     </div>
   );
