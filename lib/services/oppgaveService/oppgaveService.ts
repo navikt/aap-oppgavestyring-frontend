@@ -12,7 +12,7 @@ export const hentMineOppgaver = async (): Promise<Oppgave[]> => {
   const url = `${oppgaveApiBaseUrl}/mine-oppgaver`;
   return await fetchProxyNoRetry<Oppgave[]>(url, oppgaveApiScope, 'GET', undefined, 'oppgaveservice/mine-oppgaver');
 };
-export const hentÅpneOppgaver = async (): Promise<Oppgave[]> => {
+export const hentAlleOppgaver = async (): Promise<Oppgave[]> => {
   const url = `${oppgaveApiBaseUrl}/alle-oppgaver`;
   return await fetchProxy<Oppgave[]>(url, oppgaveApiScope, 'GET');
 };
