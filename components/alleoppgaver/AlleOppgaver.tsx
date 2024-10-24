@@ -1,13 +1,8 @@
 'use client';
 
 import { Oppgave } from '../../lib/types/types';
-import { Button, Dropdown, Heading, HStack, Loader, Table } from '@navikt/ds-react';
-import { useState } from 'react';
-import { avregistrerOppgaveFetch } from '../../lib/clientApi';
-import { buildSaksbehandlingsURL } from '../../lib/utils/urlBuilder';
-import { ChevronDownIcon } from '@navikt/aksel-icons';
+import { Heading, Table } from '@navikt/ds-react';
 import { formaterDato } from '../../lib/utils/date';
-import { revalidateMineOppgaver } from '../../lib/actions/actions';
 
 interface Props {
   oppgaver: Oppgave[];
