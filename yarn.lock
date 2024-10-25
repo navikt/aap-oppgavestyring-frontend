@@ -1808,7 +1808,7 @@ __metadata:
     eslint-plugin-promise: "npm:^6.6.0"
     eslint-plugin-react: "npm:^7.35.2"
     eslint-plugin-react-hooks: "npm:^4.6.2"
-    jose: "npm:^5.8.0"
+    jose: "npm:^5.9.6"
     jsdom: "npm:^24.1.3"
     lint-staged: "npm:^15.2.10"
     next: "npm:14.2.10"
@@ -4569,10 +4569,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jose@npm:^5.8.0":
-  version: 5.8.0
-  resolution: "jose@npm:5.8.0"
-  checksum: 10c0/f4dba1bbc41c46ae549840c3f99db07e72c1a191dffeef46bbd81c5fdc01827bb4be4d9f3e77d37887ffb56c57bd276e5fde314e6e790db19809008e47004c48
+"jose@npm:^5.9.6":
+  version: 5.9.6
+  resolution: "jose@npm:5.9.6"
+  checksum: 10c0/d6bcd8c7d655b5cda8e182952a76f0c093347f5476d74795405bb91563f7ab676f61540310dd4b1531c60d685335ceb600571a409551d2cbd2ab3e9f9fbf1e4d
   languageName: node
   linkType: hard
 
