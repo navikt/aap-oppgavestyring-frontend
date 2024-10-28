@@ -1116,19 +1116,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redocly/config@npm:^0.10.1":
-  version: 0.10.1
-  resolution: "@redocly/config@npm:0.10.1"
-  checksum: 10c0/c9dc37578b19a97ceccf5a7ee38f772cfbbb81093f3d6b1714b46434616c8242403d64648e3e1b184b604f5740020baba4d95ec53446b05be89c1366b8a6cae1
+"@redocly/config@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "@redocly/config@npm:0.15.0"
+  checksum: 10c0/b8aef1d24ce611cda4f1662cf83da868092f84b7043a445d29db9bb7a08bafe377720228893daca1f70a4d770e6ea810f6ef10c8b244a3475410dfe4bd6b6e07
   languageName: node
   linkType: hard
 
-"@redocly/openapi-core@npm:^1.16.0":
-  version: 1.25.0
-  resolution: "@redocly/openapi-core@npm:1.25.0"
+"@redocly/openapi-core@npm:^1.25.3":
+  version: 1.25.9
+  resolution: "@redocly/openapi-core@npm:1.25.9"
   dependencies:
     "@redocly/ajv": "npm:^8.11.2"
-    "@redocly/config": "npm:^0.10.1"
+    "@redocly/config": "npm:^0.15.0"
     colorette: "npm:^1.2.0"
     https-proxy-agent: "npm:^7.0.4"
     js-levenshtein: "npm:^1.1.6"
@@ -1138,7 +1138,7 @@ __metadata:
     node-fetch: "npm:^2.6.1"
     pluralize: "npm:^8.0.0"
     yaml-ast-parser: "npm:0.0.43"
-  checksum: 10c0/4d0c7348f2f6d67ebd3639fbfec334ab0193e5d8b94cf9ec4ee47e9aed23b9642482ac2f24dfafbe137d025adf58e1b8a204b383b96eb1a4985c024e3b85de3b
+  checksum: 10c0/a4749d7ed58c6a209a2b3db61f559bf22b4e93e76430d322db80b82fed34c1452994cebadbb1bdeb2799b32f9a97f8fb56e249f5345bb2d045e141c03d476d40
   languageName: node
   linkType: hard
 
@@ -1925,7 +1925,7 @@ __metadata:
     jsdom: "npm:^25.0.1"
     lint-staged: "npm:^15.2.10"
     next: "npm:14.2.10"
-    openapi-typescript: "npm:^7.4.0"
+    openapi-typescript: "npm:^7.4.2"
     pino-pretty: "npm:^11.2.2"
     prettier: "npm:^3.3.3"
     react: "npm:^18.3.1"
@@ -5615,11 +5615,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"openapi-typescript@npm:^7.4.0":
-  version: 7.4.0
-  resolution: "openapi-typescript@npm:7.4.0"
+"openapi-typescript@npm:^7.4.2":
+  version: 7.4.2
+  resolution: "openapi-typescript@npm:7.4.2"
   dependencies:
-    "@redocly/openapi-core": "npm:^1.16.0"
+    "@redocly/openapi-core": "npm:^1.25.3"
     ansi-colors: "npm:^4.1.3"
     change-case: "npm:^5.4.4"
     parse-json: "npm:^8.1.0"
@@ -5629,7 +5629,7 @@ __metadata:
     typescript: ^5.x
   bin:
     openapi-typescript: bin/cli.js
-  checksum: 10c0/924a839591dc8d05e85f3a8a4d3413c3c57ff9edb2d56d76ef4c0b95c0b6da8fedf749ae7e90fba5829299b87cc9d81e9b2286a88fc86ed9448aef45d6bc8eaf
+  checksum: 10c0/a8728957234b39c7d404bc779b53878eb1469d83055983cae8efc4d6467495a4f89afd3699b465bb3548fbea8bab06011f3a613db53b23745e5841a6c47928be
   languageName: node
   linkType: hard
 
