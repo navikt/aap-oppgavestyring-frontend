@@ -33,11 +33,15 @@ export const VelgOppgaveKø = ({ køer }: Props) => {
             value={aktivKø}
             onChange={(event) => setAktivKø(parseInt(event.target.value))}
           >
-            {køer.map((kø) => (
-              <option key={kø.id} value={kø.id}>
-                {kø.navn}
-              </option>
-            ))}
+            {køer.map((kø) => {
+              if (kø) {
+                return (
+                  <option key={kø.id} value={`${kø.id}`}>
+                    {kø.navn}
+                  </option>
+                );
+              }
+            })}
           </Select>
 
           <div>
