@@ -6,10 +6,11 @@ const oppgavestyringApiBaseUrl = process.env.OPPGAVESTYRING_API_BASE_URL;
 const oppgavestyringApiScope = process.env.OPPGAVESTYRING_API_SCOPE ?? '';
 
 interface Params {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export async function PATCH(req: NextRequest, { params }: Params) {
+export async function PATCH(req: NextRequest, props: Params) {
+  const params = await props.params;
   if (isLocal()) {
     return new Response(JSON.stringify({ message: 'Oppgave fordelt', status: 200 }), { status: 200 });
   }

@@ -5,7 +5,8 @@ import { NextRequest } from 'next/server';
 const oppgavestyringApiBaseUrl = process.env.OPPGAVESTYRING_API_BASE_URL;
 const oppgavestyringApiScope = process.env.OPPGAVESTYRING_API_SCOPE ?? '';
 
-export async function DELETE(req: NextRequest, { params }: { params: { filterid: string } }) {
+export async function DELETE(req: NextRequest, props: { params: Promise<{ filterid: string }> }) {
+  const params = await props.params;
   if (isLocal()) {
     return new Response(JSON.stringify({ message: 'Kø er slettet', status: 200 }), { status: 200 });
   }
