@@ -53,3 +53,5 @@ spec:
     outbound:
       rules:
         - application: "oppgave"
+    external:
+      - host: "cdn.nav.no"
