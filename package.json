@@ -28,7 +28,7 @@
     "swr": "^2.2.5"
   },
   "devDependencies": {
-    "@navikt/aap-behandlingsflyt-typescript-types": "^0.0.3",
+    "@navikt/aap-behandlingsflyt-typescript-types": "^0.0.53",
     "@navikt/aap-felles-prettier": "^2.0.20",
     "@navikt/eslint-config-aap": "^2.0.20",
     "@testing-library/dom": "^10.4.0",
