@@ -2,16 +2,17 @@
 import { BodyShort, Button, Heading, Label, Select } from '@navikt/ds-react';
 
 import styles from './VelgOppgaveKø.module.css';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { Kø, NesteOppgaveResponse } from 'lib/types/types';
 import { fetchProxy } from 'lib/clientApi';
 import { buildSaksbehandlingsURL } from '../../lib/utils/urlBuilder';
 
 interface Props {
   køer: Kø[];
+  valgtKøListener?: Dispatch<SetStateAction<number>>;
 }
 
-export const VelgOppgaveKø = ({ køer }: Props) => {
+export const VelgOppgaveKø = ({ køer, valgtKøListener }: Props) => {
   const [aktivKø, setAktivKø] = useState<number>(køer[0]?.id ?? 0);
   async function plukkOgGåTilOppgave() {
     const nesteOppgave = await fetchProxy<NesteOppgaveResponse>('/api/oppgave/neste', 'POST', { køId: aktivKø });
@@ -31,7 +32,11 @@ export const VelgOppgaveKø = ({ køer }: Props) => {
             size="small"
             description="Du jobber på følgende kø"
             value={aktivKø}
-            onChange={(event) => setAktivKø(parseInt(event.target.value))}
+            onChange={(event) => {
+              const køId = parseInt(event.target.value);
+              setAktivKø(køId);
+              valgtKøListener && valgtKøListener(køId);
+            }}
           >
             {køer.map((kø) => {
               if (kø) {

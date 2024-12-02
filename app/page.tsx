@@ -1,24 +1,17 @@
-import { hentAlleOppgaver, hentKøer, hentMineOppgaver } from 'lib/services/oppgaveService/oppgaveService';
-import { VelgOppgaveKø } from '../components/velgoppgavekø/VelgOppgaveKø';
+import { hentKøer, hentMineOppgaver } from 'lib/services/oppgaveService/oppgaveService';
 import { MineOppgaver } from '../components/mineoppgaver/MineOppgaver';
 import { Kort } from '../components/oppgavebehandling/kort/Kort';
 import styles from './page.module.css';
-import { AlleOppgaver } from '../components/alleoppgaver/AlleOppgaver';
+import { OppgaveKøMedOppgaver } from 'components/oppgavekømedoppgaver/OppgaveKøMedOppgaver';
 
 const Page = async () => {
   const køer = await hentKøer();
   const mineOppgaver = await hentMineOppgaver();
-  const alleOppgaver = await hentAlleOppgaver();
   return (
     <div className={styles.container}>
+      <OppgaveKøMedOppgaver køer={køer} />
       <Kort>
-        <VelgOppgaveKø køer={køer} />
-      </Kort>
-      <Kort>
-        <MineOppgaver oppgaver={mineOppgaver} />
-      </Kort>
-      <Kort>
-        <AlleOppgaver oppgaver={alleOppgaver} />
+        <MineOppgaver oppgaver={mineOppgaver || []} />
       </Kort>
     </div>
   );

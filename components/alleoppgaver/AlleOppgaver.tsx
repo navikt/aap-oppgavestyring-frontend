@@ -5,14 +5,20 @@ import { Heading, Table } from '@navikt/ds-react';
 import { formaterDato } from '../../lib/utils/date';
 
 interface Props {
+  heading?: string;
   oppgaver: Oppgave[];
 }
-export const AlleOppgaver = ({ oppgaver }: Props) => {
+export const AlleOppgaver = ({ oppgaver, heading }: Props) => {
+  if (!oppgaver?.length) {
+    return null;
+  }
   return (
     <div>
-      <Heading size={'medium'} level={'2'} spacing>
-        Alle oppgaver
-      </Heading>
+      {heading && (
+        <Heading size={'medium'} level={'2'} spacing>
+          {heading}
+        </Heading>
+      )}
       <Table size={'small'} zebraStripes>
         <Table.Header>
           <Table.Row>
