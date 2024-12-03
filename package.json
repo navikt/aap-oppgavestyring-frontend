@@ -23,8 +23,8 @@
     "@navikt/oasis": "^3.6.0",
     "jose": "^5.8.0",
     "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react": "19.0.0-rc.1",
+    "react-dom": "19.0.0-rc.1",
     "swr": "^2.2.5"
   },
   "devDependencies": {
