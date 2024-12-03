@@ -2,7 +2,7 @@
 import { BodyShort, Button, Heading, Label, Select } from '@navikt/ds-react';
 
 import styles from './VelgOppgaveKø.module.css';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useMemo, useState } from 'react';
 import { Kø, NesteOppgaveResponse } from 'lib/types/types';
 import { fetchProxy } from 'lib/clientApi';
 import { buildSaksbehandlingsURL } from '../../lib/utils/urlBuilder';
@@ -20,6 +20,7 @@ export const VelgOppgaveKø = ({ køer, valgtKøListener }: Props) => {
       window.location.assign(buildSaksbehandlingsURL(nesteOppgave.avklaringsbehovReferanse));
     }
   }
+  const aktivKøBeskrivelse = useMemo(() => køer.find((e) => e.id === aktivKø)?.beskrivelse, [aktivKø]);
   return (
     <div>
       <Heading level="2" size="medium" spacing>
@@ -59,9 +60,7 @@ export const VelgOppgaveKø = ({ køer, valgtKøListener }: Props) => {
           <Label as="p" spacing>
             Beskrivelse av køen
           </Label>
-          <BodyShort spacing>
-            Standard kø. Alle AAP-oppgaver, med unntak av skjermede personer og internt ansatte.
-          </BodyShort>
+          <BodyShort spacing>{aktivKøBeskrivelse}</BodyShort>
         </div>
       </div>
     </div>

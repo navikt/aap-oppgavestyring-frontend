@@ -11,9 +11,9 @@ export const hentKøer = async (): Promise<Kø[]> => {
   if (isLocal()) {
     return [
       // @ts-ignore
-      { navn: 'Kø en', id: 0 },
+      { navn: 'Kø en', id: 0, beskrivelse: 'Beskrivelse for kø en' },
       // @ts-ignore
-      { navn: 'Kø to', id: 1 },
+      { navn: 'Kø to', id: 1, beskrivelse: 'Beskrivelse for kø to' },
     ];
   }
   const url = `${oppgaveApiBaseUrl}/filter`;

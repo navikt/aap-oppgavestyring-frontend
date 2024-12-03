@@ -8,7 +8,7 @@
     "test": "vitest --run",
     "start": "next start",
     "lint": "next lint",
-    "gentypes": "openapi-typescript http://localhost:8080/openapi.json -o lib/types/schema.d.ts",
+    "gentypes": "openapi-typescript http://localhost:8080/openapi.json -o lib/types/schema-oppgave.ts",
     "prepare": "husky",
     "run-prettier": "prettier --write ."
   },
