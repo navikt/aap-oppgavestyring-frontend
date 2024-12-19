@@ -125,5 +125,5 @@ export async function hentEnheter() {
     ];
   }
   const url = `${oppgaveApiBaseUrl}/enheter`;
-  return await fetchProxy<Array<Enhet>>(url, oppgaveApiScope, 'POST');
+  return await fetchProxy<Array<Enhet>>(url, oppgaveApiScope, 'GET');
 }
