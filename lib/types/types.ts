@@ -9,6 +9,9 @@ export type Kø = oppgave['schemas']['no.nav.aap.oppgave.filter.FilterDto'];
 export type Oppgave = oppgave['schemas']['no.nav.aap.oppgave.OppgaveDto'];
 export type AvklaringsbehovReferanse = oppgave['schemas']['no.nav.aap.oppgave.AvklaringsbehovReferanseDto'];
 export type Enhet = oppgave['schemas']['no.nav.aap.oppgave.enhet.EnhetDto'];
+export type NesteOppgaveRequestBody = oppgave['schemas']['no.nav.aap.oppgave.plukk.FinnNesteOppgaveDto'];
+export type OppgavelisteRequestBody = oppgave['schemas']['no.nav.aap.oppgave.filter.OppgaveS\u00F8kDto'];
+export type OppgavesøkRequestBody = oppgave['schemas']['no.nav.aap.oppgave.filter.TransientFilterDto'];
 
 // behandlingsflyt
 export type BehandlingsFlytAvklaringsbehovKode =

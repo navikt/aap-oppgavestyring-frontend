@@ -1,31 +1,59 @@
 'use client';
-import { BodyShort, Button, Heading, Label, Select } from '@navikt/ds-react';
+import { BodyShort, Button, Heading, HStack, Label, Select, VStack } from '@navikt/ds-react';
 
 import styles from './VelgOppgaveKø.module.css';
 import { Dispatch, SetStateAction, useMemo, useState } from 'react';
-import { Kø, NesteOppgaveResponse } from 'lib/types/types';
+import { Enhet, Kø, NesteOppgaveRequestBody, NesteOppgaveResponse } from 'lib/types/types';
 import { fetchProxy } from 'lib/clientApi';
 import { buildSaksbehandlingsURL } from '../../lib/utils/urlBuilder';
 
 interface Props {
   køer: Kø[];
   valgtKøListener?: Dispatch<SetStateAction<number>>;
+  enheter: Enhet[];
+  valgtEnhetListener?: Dispatch<SetStateAction<string>>;
 }
 
-export const VelgOppgaveKø = ({ køer, valgtKøListener }: Props) => {
+export const VelgOppgaveKø = ({ køer, valgtKøListener, enheter, valgtEnhetListener }: Props) => {
   const [aktivKø, setAktivKø] = useState<number>(køer[0]?.id ?? 0);
+  const [aktivEnhet, setAktivEnhet] = useState<string | undefined>(enheter[0]?.enhetNr);
   async function plukkOgGåTilOppgave() {
-    const nesteOppgave = await fetchProxy<NesteOppgaveResponse>('/api/oppgave/neste', 'POST', { køId: aktivKø });
+    const payload: NesteOppgaveRequestBody = { filterId: aktivKø, enheter: [aktivEnhet || ''] };
+    const nesteOppgave = await fetchProxy<NesteOppgaveResponse>('/api/oppgave/neste', 'POST', payload);
     if (nesteOppgave) {
       window.location.assign(buildSaksbehandlingsURL(nesteOppgave.avklaringsbehovReferanse));
     }
   }
   const aktivKøBeskrivelse = useMemo(() => køer.find((e) => e.id === aktivKø)?.beskrivelse, [aktivKø]);
   return (
-    <div>
-      <Heading level="2" size="medium" spacing>
+    <VStack gap={'4'}>
+      <Heading level="2" size="medium">
         Oppgavekø
       </Heading>
+      <HStack>
+        <Select
+          label="Velg enhet"
+          size="small"
+          value={aktivEnhet}
+          onChange={(event) => {
+            const enhet = event.target.value;
+            if (enhet) {
+              setAktivEnhet(enhet);
+              valgtEnhetListener && valgtEnhetListener(enhet);
+            }
+          }}
+        >
+          {enheter.map((enhet) => {
+            if (enhet) {
+              return (
+                <option key={enhet.enhetNr} value={enhet.enhetNr}>
+                  {enhet.navn}
+                </option>
+              );
+            }
+          })}
+        </Select>
+      </HStack>
       <div className={styles.container}>
         <div className={styles.column}>
           <Select
@@ -63,6 +91,6 @@ export const VelgOppgaveKø = ({ køer, valgtKøListener }: Props) => {
           <BodyShort spacing>{aktivKøBeskrivelse}</BodyShort>
         </div>
       </div>
-    </div>
+    </VStack>
   );
 };

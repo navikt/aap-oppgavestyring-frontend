@@ -1,5 +1,13 @@
 import { fetchProxy, fetchProxyNoRetry } from 'lib/services/fetchProxy';
-import { AvklaringsbehovReferanse, Enhet, Kø, NesteOppgaveResponse, Oppgave } from 'lib/types/types';
+import {
+  AvklaringsbehovReferanse,
+  Enhet,
+  Kø,
+  NesteOppgaveRequestBody,
+  NesteOppgaveResponse,
+  Oppgave,
+  OppgavelisteRequestBody,
+} from 'lib/types/types';
 import {
   NoNavAapOppgaveOppgaveDtoBehandlingstype,
   NoNavAapOppgaveOppgaveDtoStatus,
@@ -59,14 +67,7 @@ export const hentMineOppgaver = async (): Promise<Oppgave[]> => {
   const url = `${oppgaveApiBaseUrl}/mine-oppgaver`;
   return await fetchProxyNoRetry<Oppgave[]>(url, oppgaveApiScope, 'GET', undefined, 'oppgaveservice/mine-oppgaver');
 };
-export const hentAlleOppgaver = async (): Promise<Oppgave[]> => {
-  if (isLocal()) {
-    return oppgaveMock;
-  }
-  const url = `${oppgaveApiBaseUrl}/alle-oppgaver`;
-  return await fetchProxy<Oppgave[]>(url, oppgaveApiScope, 'GET');
-};
-export const hentOppgaverForFilter = async (filterId: number): Promise<Oppgave[]> => {
+export const hentOppgaveliste = async ({ filterId, enheter }: OppgavelisteRequestBody): Promise<Oppgave[]> => {
   if (isLocal()) {
     return [
       {
@@ -99,17 +100,20 @@ export const hentOppgaverForFilter = async (filterId: number): Promise<Oppgave[]
       },
     ];
   }
-  const url = `${oppgaveApiBaseUrl}/hent-oppgaver`;
-  return await fetchProxy<Oppgave[]>(url, oppgaveApiScope, 'POST', { filterId });
+  const url = `${oppgaveApiBaseUrl}/oppgaveliste`;
+  return await fetchProxy<Oppgave[]>(url, oppgaveApiScope, 'POST', { filterId, enheter });
 };
 export const avreserverOppgave = async (avklaringsbehovReferanse: AvklaringsbehovReferanse): Promise<unknown> => {
   const url = `${oppgaveApiBaseUrl}/avreserver-oppgave`;
   return await fetchProxy<unknown>(url, oppgaveApiScope, 'POST', avklaringsbehovReferanse);
 };
 
-export const velgNesteOppgave = async (køId: number): Promise<NesteOppgaveResponse> => {
+export const velgNesteOppgave = async ({
+  filterId,
+  enheter,
+}: NesteOppgaveRequestBody): Promise<NesteOppgaveResponse> => {
   const url = `${oppgaveApiBaseUrl}/neste-oppgave`;
-  return await fetchProxy<NesteOppgaveResponse>(url, oppgaveApiScope, 'POST', { filterId: køId });
+  return await fetchProxy<NesteOppgaveResponse>(url, oppgaveApiScope, 'POST', { filterId, enheter });
 };
 
 export async function hentEnheter() {
