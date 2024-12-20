@@ -7,7 +7,7 @@ import { Kort } from 'components/oppgavebehandling/kort/Kort';
 import { AlleOppgaver } from 'components/alleoppgaver/AlleOppgaver';
 import useSWR from 'swr';
 import { fetchProxy } from 'lib/clientApi';
-import { VStack } from '@navikt/ds-react';
+import { BodyShort, VStack } from '@navikt/ds-react';
 
 interface Props {
   køer: Kø[];
@@ -27,6 +27,7 @@ export const OppgaveKøMedOppgaver = ({ køer, enheter }: Props) => {
     <Kort>
       <VStack gap={'5'}>
         <VelgOppgaveKø køer={køer} valgtKøListener={setAktivKø} enheter={enheter} valgtEnhetListener={setAktivEnhet} />
+        {!oppgaverValgtKø.data?.length && <BodyShort>Ingen oppgaver i valgt kø for valgt enhet</BodyShort>}
         <AlleOppgaver oppgaver={oppgaverValgtKø.data || []} />
       </VStack>
     </Kort>
