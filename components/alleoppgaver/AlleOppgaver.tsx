@@ -1,8 +1,9 @@
 'use client';
 
-import { AvklaringsbehovKode, mapBehovskodeTilBehovstype, Oppgave } from '../../lib/types/types';
-import { Heading, Table } from '@navikt/ds-react';
-import { formaterDato } from '../../lib/utils/date';
+import { AvklaringsbehovKode, mapBehovskodeTilBehovstype, Oppgave } from 'lib/types/types';
+import { Button, Heading, HStack, Table } from '@navikt/ds-react';
+import { formaterDato } from 'lib/utils/date';
+import { buildSaksbehandlingsURL } from 'lib/utils/urlBuilder';
 
 interface Props {
   heading?: string;
@@ -11,6 +12,11 @@ interface Props {
 export const AlleOppgaver = ({ oppgaver, heading }: Props) => {
   if (!oppgaver?.length) {
     return null;
+  }
+  function redirectTilOppgave(oppgave: Oppgave) {
+    if (oppgave) {
+      window.location.assign(buildSaksbehandlingsURL(oppgave));
+    }
   }
   return (
     <div>
@@ -37,6 +43,15 @@ export const AlleOppgaver = ({ oppgaver, heading }: Props) => {
                 {mapBehovskodeTilBehovstype(oppgave.avklaringsbehovKode as AvklaringsbehovKode)}
               </Table.DataCell>
               <Table.DataCell>{formaterDato(oppgave.opprettetTidspunkt)}</Table.DataCell>
+              {process.env.NEXT_PUBLIC_ENVIRONMENT === 'dev' && (
+                <Table.DataCell>
+                  <HStack gap={'1'}>
+                    <Button type={'button'} size={'small'} onClick={() => redirectTilOppgave(oppgave)}>
+                      Behandle
+                    </Button>
+                  </HStack>
+                </Table.DataCell>
+              )}
             </Table.Row>
           ))}
         </Table.Body>
