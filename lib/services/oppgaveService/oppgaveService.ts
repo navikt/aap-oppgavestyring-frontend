@@ -127,3 +127,32 @@ export async function hentEnheter() {
   const url = `${oppgaveApiBaseUrl}/enheter`;
   return await fetchProxy<Array<Enhet>>(url, oppgaveApiScope, 'GET');
 }
+
+export async function oppgaveSøk(søketekst: string) {
+  if (isLocal()) {
+    return [
+      {
+        avklaringsbehovKode: '9003',
+        behandlingOpprettet: '2025-01-06T12:36:44.716229',
+        behandlingRef: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+        behandlingstype: 'FØRSTEGANGSBEHANDLING',
+        id: 0,
+        journalpostId: 123,
+        status: 'OPPRETTET',
+        versjon: 0,
+      },
+      {
+        avklaringsbehovKode: '5001',
+        behandlingOpprettet: '2025-01-06T12:36:44.716229',
+        behandlingRef: '34fdsff-5717-4562-b3fc-2c963f66afa6',
+        behandlingstype: 'FØRSTEGANGSBEHANDLING',
+        id: 1,
+        journalpostId: 234,
+        status: 'OPPRETTET',
+        versjon: 0,
+      },
+    ];
+  }
+  const url = `${oppgaveApiBaseUrl}/sok`;
+  return await fetchProxy<Array<Oppgave>>(url, oppgaveApiScope, 'POST', { søketekst });
+}

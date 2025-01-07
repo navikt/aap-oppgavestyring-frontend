@@ -1,9 +1,10 @@
 'use client';
 
 import { BrukerInformasjon } from '@navikt/aap-felles-utils';
-import { Dropdown, InternalHeader, Link } from 'components/DsClient';
+import { Dropdown, InternalHeader, Link } from '@navikt/ds-react';
 
 import styles from 'components/appheader/AppHeader.module.css';
+import { Oppgavesøk } from 'components/oppgavesok/Oppgavesøk';
 
 const Brukermeny = ({ brukerInformasjon }: { brukerInformasjon: BrukerInformasjon }) => (
   <Dropdown>
@@ -24,6 +25,7 @@ const AppHeader = ({ brukerInformasjon }: { brukerInformasjon: BrukerInformasjon
   <InternalHeader className={styles.header}>
     <div className={styles.leftSide}>
       <InternalHeader.Title href="/">Kelvin</InternalHeader.Title>
+      <Oppgavesøk />
       <Link href={`${process.env.NEXT_PUBLIC_SAKSBEHANDLING_URL}/sanity`}>Sanity</Link>
       <Link href={`${process.env.NEXT_PUBLIC_SAKSBEHANDLING_URL}/saksoversikt`}>Saksoversikt</Link>
       <Link href={'/oppgaveliste'}>Oppgaveliste</Link>
