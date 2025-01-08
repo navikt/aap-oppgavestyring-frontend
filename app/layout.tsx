@@ -1,10 +1,11 @@
 import '@navikt/ds-css';
+import '@navikt/aap-felles-css';
 import 'styles/globals.css';
 
-import { AppHeader } from 'components/appheader/AppHeader';
 import { hentBrukerInformasjon, verifyUserLoggedIn } from '@navikt/aap-felles-utils';
 
 import styles from './layout.module.css';
+import { KelvinAppHeader } from '@navikt/aap-felles-react/cjs/KelvinAppHeader/KelvinAppHeader';
 
 export const metadata = {
   title: 'Kelvin',
@@ -18,7 +19,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="nb">
       <body className={styles.body}>
-        <AppHeader brukerInformasjon={brukerInformasjon} />
+        <KelvinAppHeader brukerInformasjon={brukerInformasjon} />
         <div className={styles.flexContainer}>
           <div className={styles.bodyContainer}>{children}</div>
         </div>

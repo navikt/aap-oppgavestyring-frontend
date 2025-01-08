@@ -6,13 +6,17 @@ import { fetchProxy } from 'lib/clientApi';
 import { byggFilterFraKø } from 'components/oppgavebehandling/lib/filter';
 import { useSWRConfig } from 'swr';
 
+interface LagreModalFormFields {
+  navn: string;
+  beskrivelse: string;
+}
 export const LagreModal = () => {
   const [feilVedLagring, settFeilVedLagring] = useState<boolean>(false);
   const modalRef = useRef<HTMLDialogElement>(null);
   const køContext = useContext(KøContext);
   const { mutate } = useSWRConfig();
 
-  const { formFields, form } = useConfigForm({
+  const { formFields, form } = useConfigForm<LagreModalFormFields>({
     navn: {
       type: 'text',
       label: 'Kønavn',

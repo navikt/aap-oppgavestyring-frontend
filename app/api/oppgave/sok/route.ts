@@ -1,6 +1,8 @@
 import { NextRequest } from 'next/server';
 import { logError } from '@navikt/aap-felles-utils';
 import { oppgaveSøk } from 'lib/services/oppgaveService/oppgaveService';
+import { AvklaringsbehovKode, mapBehovskodeTilBehovstype } from 'lib/types/types';
+import { buildSaksbehandlingsURL } from 'lib/utils/urlBuilder';
 
 export async function POST(req: NextRequest) {
   const data: { søketekst: string } = await req.json().then((data) => ({ søketekst: data.søketekst }));
@@ -10,7 +12,11 @@ export async function POST(req: NextRequest) {
 
   try {
     const result = await oppgaveSøk(data.søketekst);
-    return new Response(JSON.stringify(result), { status: 200 });
+    const mappedResult = result.map((oppgave) => ({
+      href: buildSaksbehandlingsURL(oppgave),
+      label: `${mapBehovskodeTilBehovstype(oppgave.avklaringsbehovKode as AvklaringsbehovKode)} - ${oppgave.behandlingstype}`,
+    }));
+    return new Response(JSON.stringify(mappedResult), { status: 200 });
   } catch (error) {
     logError(`/api/oppgave/sok`, error);
     return new Response(JSON.stringify({ message: JSON.stringify(error), status: 500 }), { status: 500 });

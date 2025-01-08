@@ -56,33 +56,32 @@ describe('Filter', () => {
     køContextRender(<Filter erAvdelingsleder={true} />, { valgtKø: nyKø });
     expect(screen.getByRole('button', { name: /Slett kø/ })).toBeInTheDocument();
   });
-});
-
-test('viser knapp for å lagre kø når man har lagt til et filter og er avdelingsleder', () => {
-  const nyKø: Kø = {
-    id: 1,
-    navn: 'En annen kø',
-    beskrivelse: 'En helt annen kø',
-    flervalgsfilter: [
-      {
-        navn: 'param',
-        valgteFilter: [
-          {
-            value: '1',
-            label: 'Label',
-          },
-        ],
-        alleFilter: [
-          {
-            value: '1',
-            label: 'Label',
-          },
-        ],
-      },
-    ],
-  };
-  køContextRender(<Filter erAvdelingsleder={true} />, { valgtKø: nyKø });
-  expect(screen.getByRole('button', { name: /Lagre som kø/ })).toBeInTheDocument();
+  test('viser knapp for å lagre kø når man har lagt til et filter og er avdelingsleder', () => {
+    const nyKø: Kø = {
+      id: 1,
+      navn: 'En annen kø',
+      beskrivelse: 'En helt annen kø',
+      flervalgsfilter: [
+        {
+          navn: 'param',
+          valgteFilter: [
+            {
+              value: '1',
+              label: 'Label',
+            },
+          ],
+          alleFilter: [
+            {
+              value: '1',
+              label: 'Label',
+            },
+          ],
+        },
+      ],
+    };
+    køContextRender(<Filter erAvdelingsleder={true} />, { valgtKø: nyKø });
+    expect(screen.getByRole('button', { name: /Lagre som kø/ })).toBeInTheDocument();
+  });
 });
 
 const køContextRender = (ui: ReactElement, { valgtKø, ...renderOptions }: { valgtKø: Kø }) => {

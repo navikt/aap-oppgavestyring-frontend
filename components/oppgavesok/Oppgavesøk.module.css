@@ -6,9 +6,7 @@
   padding: 0 var(--a-spacing-2) var(--a-spacing-2) var(--a-spacing-2);
 }
 .form {
-  overflow: visible;
-}
-.container {
   padding-top: var(--a-spacing-2);
   background-color: var(--a-surface-inverted);
+  overflow: visible;
 }
