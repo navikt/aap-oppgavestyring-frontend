@@ -37,6 +37,7 @@ export const MineOppgaver = ({ oppgaver }: Props) => {
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>SaksID</Table.HeaderCell>
+            <Table.HeaderCell>Navn</Table.HeaderCell>
             <Table.HeaderCell>Type behandling</Table.HeaderCell>
             <Table.HeaderCell>Avklaringsbehov</Table.HeaderCell>
             <Table.HeaderCell>Dato opprettet</Table.HeaderCell>
@@ -48,6 +49,7 @@ export const MineOppgaver = ({ oppgaver }: Props) => {
           {oppgaver.map((oppgave, i) => (
             <Table.Row key={`oppgave-${i}`}>
               <Table.DataCell>{`${oppgave.saksnummer}`}</Table.DataCell>
+              <Table.DataCell>{`${oppgave.personNavn}`}</Table.DataCell>
               <Table.DataCell>{oppgave.behandlingstype}</Table.DataCell>
               <Table.DataCell>
                 {mapBehovskodeTilBehovstype(oppgave.avklaringsbehovKode as AvklaringsbehovKode)}
