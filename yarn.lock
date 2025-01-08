@@ -1088,9 +1088,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/aap-felles-react@npm:^4.1.2":
-  version: 4.1.2
-  resolution: "@navikt/aap-felles-react@npm:4.1.2::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-react%2F4.1.2%2F76be4f80628677b4660b3b0cae1d2f39e9392e0b"
+"@navikt/aap-felles-react@npm:^4.1.4":
+  version: 4.1.4
+  resolution: "@navikt/aap-felles-react@npm:4.1.4::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Faap-felles-react%2F4.1.4%2Ff1a9b5daf2a91f9ce5fdea326d833fa6810bbf55"
   dependencies:
     "@navikt/aksel-icons": "npm:^7.5.2"
     "@navikt/ds-css": "npm:^7.5.2"
@@ -1100,7 +1100,7 @@ __metadata:
     react-hook-form: "npm:^7.53.2"
     react-select: "npm:^5.8.3"
     uuid: "npm:^10.0.0"
-  checksum: 10c0/459d6a98f6d9089e2c014256e97bceaa8474387fa59c0a21d67a3dd79fd3631041cedba49b59c9468c6ec53fa9de88ab84445cf5669fd4685ca3113485429666
+  checksum: 10c0/075174e7854265e89c0eea8d1ad8a93f3f4a7933c728ee4a3af1e0bb01481fcd607fd39c0a2db22361d1fcd6d39d8e008fd39a69945cb4909af65033281c3326
   languageName: node
   linkType: hard
 
@@ -2254,7 +2254,7 @@ __metadata:
     "@navikt/aap-behandlingsflyt-typescript-types": "npm:^0.0.195"
     "@navikt/aap-felles-css": "npm:^4.1.3"
     "@navikt/aap-felles-prettier": "npm:^2.0.28"
-    "@navikt/aap-felles-react": "npm:^4.1.2"
+    "@navikt/aap-felles-react": "npm:^4.1.4"
     "@navikt/aap-felles-utils": "npm:^2.0.28"
     "@navikt/aap-oppgave-typescript-types": "npm:^0.0.41"
     "@navikt/aap-postmottak-backend-typescript-types": "npm:^0.0.24"
