@@ -9,7 +9,7 @@ interface Props {
   heading?: string;
   oppgaver: Oppgave[];
 }
-export const AlleOppgaver = ({ oppgaver, heading }: Props) => {
+export const OppgaveTabell = ({ oppgaver, heading }: Props) => {
   if (!oppgaver?.length) {
     return null;
   }

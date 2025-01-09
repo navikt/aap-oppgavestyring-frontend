@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Enhet, Kø, Oppgave, OppgavelisteRequestBody } from 'lib/types/types';
 import { VelgOppgaveKø } from 'components/velgoppgavekø/VelgOppgaveKø';
 import { Kort } from 'components/oppgavebehandling/kort/Kort';
-import { AlleOppgaver } from 'components/alleoppgaver/AlleOppgaver';
+import { OppgaveTabell } from 'components/oppgavetabell/OppgaveTabell';
 import useSWR from 'swr';
 import { fetchProxy } from 'lib/clientApi';
 import { BodyShort, VStack } from '@navikt/ds-react';
@@ -28,7 +28,7 @@ export const OppgaveKøMedOppgaver = ({ køer, enheter }: Props) => {
       <VStack gap={'5'}>
         <VelgOppgaveKø køer={køer} valgtKøListener={setAktivKø} enheter={enheter} valgtEnhetListener={setAktivEnhet} />
         {!oppgaverValgtKø.data?.length && <BodyShort>Ingen oppgaver i valgt kø for valgt enhet</BodyShort>}
-        <AlleOppgaver oppgaver={oppgaverValgtKø.data || []} />
+        <OppgaveTabell oppgaver={oppgaverValgtKø.data || []} />
       </VStack>
     </Kort>
   );
