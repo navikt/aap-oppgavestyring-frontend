@@ -59,5 +59,6 @@ spec:
         - application: "oppgave"
         - application: "saksbehandling"
       external:
-        - host: "cdn.nav.no"
-        - host: {{saksbehandlinghost}}
+        {{#each externals as |host|}}
+           - host: {{host}}
+          {{/each}}
