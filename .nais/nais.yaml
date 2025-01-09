@@ -60,3 +60,4 @@ spec:
         - application: "saksbehandling"
       external:
         - host: "cdn.nav.no"
+        - host: {{saksbehandlinghost}}
