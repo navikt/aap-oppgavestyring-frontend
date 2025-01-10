@@ -1,9 +1,10 @@
 'use client';
 
-import { AvklaringsbehovKode, mapBehovskodeTilBehovstype, Oppgave } from 'lib/types/types';
+import { AvklaringsbehovKode, Oppgave } from 'lib/types/types';
 import { Button, Heading, HStack, Table } from '@navikt/ds-react';
 import { formaterDato } from 'lib/utils/date';
 import { buildSaksbehandlingsURL } from 'lib/utils/urlBuilder';
+import { mapBehovskodeTilBehovstype } from 'lib/utils/avklaringsbehov';
 
 interface Props {
   heading?: string;

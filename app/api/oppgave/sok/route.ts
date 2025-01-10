@@ -1,8 +1,9 @@
 import { NextRequest } from 'next/server';
 import { logError } from '@navikt/aap-felles-utils';
 import { oppgaveSøk } from 'lib/services/oppgaveService/oppgaveService';
-import { AvklaringsbehovKode, mapBehovskodeTilBehovstype } from 'lib/types/types';
+import { AvklaringsbehovKode } from 'lib/types/types';
 import { buildSaksbehandlingsURL } from 'lib/utils/urlBuilder';
+import { mapBehovskodeTilBehovstype } from 'lib/utils/avklaringsbehov';
 
 export async function POST(req: NextRequest) {
   const data: { søketekst: string } = await req.json().then((data) => ({ søketekst: data.søketekst }));

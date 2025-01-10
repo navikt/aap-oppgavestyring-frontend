@@ -3,8 +3,9 @@
 import { Search } from '@navikt/ds-react';
 import { useState } from 'react';
 import styles from './Oppgavesøk.module.css';
-import { AvklaringsbehovKode, mapBehovskodeTilBehovstype, Oppgave } from 'lib/types/types';
+import { AvklaringsbehovKode, Oppgave } from 'lib/types/types';
 import { buildSaksbehandlingsURL } from 'lib/utils/urlBuilder';
+import { mapBehovskodeTilBehovstype } from 'lib/utils/avklaringsbehov';
 
 export const Oppgavesøk = () => {
   const [oppgaver, setOppgaver] = useState<Oppgave[]>([]);
