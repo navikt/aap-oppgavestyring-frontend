@@ -128,7 +128,7 @@ export async function hentEnheter() {
   return await fetchProxy<Array<Enhet>>(url, oppgaveApiScope, 'GET');
 }
 
-export async function oppgaveSøk(søketekst: string) {
+export async function oppgaveTekstSøk(søketekst: string) {
   if (isLocal()) {
     return [
       {

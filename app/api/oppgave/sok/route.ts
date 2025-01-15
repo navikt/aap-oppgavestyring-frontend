@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { logError } from '@navikt/aap-felles-utils';
-import { oppgaveSøk } from 'lib/services/oppgaveService/oppgaveService';
+import { oppgaveTekstSøk } from 'lib/services/oppgaveService/oppgaveService';
 import { AvklaringsbehovKode } from 'lib/types/types';
 import { buildSaksbehandlingsURL } from 'lib/utils/urlBuilder';
 import { mapBehovskodeTilBehovstype } from 'lib/utils/avklaringsbehov';
@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const result = await oppgaveSøk(data.søketekst);
+    const result = await oppgaveTekstSøk(data.søketekst);
     const mappedResult = result.map((oppgave) => ({
       href: buildSaksbehandlingsURL(oppgave),
       label: `${mapBehovskodeTilBehovstype(oppgave.avklaringsbehovKode as AvklaringsbehovKode)} - ${oppgave.behandlingstype}`,
