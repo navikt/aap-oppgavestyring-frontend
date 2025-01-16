@@ -2,4 +2,4 @@ ingresses:
   - 'https://aap-oppgavestyring.ansatt.dev.nav.no'
 externals:
   - "cdn.nav.no"
-  - "aap-saksbehandling.dev.nav.no"
+  - "aap-saksbehandling.ansatt.dev.nav.no"
