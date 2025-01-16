@@ -3,3 +3,5 @@ ingresses:
 externals:
   - "cdn.nav.no"
   - "aap-saksbehandling.ansatt.dev.nav.no"
+  - "aap-saksbehandling.intern.dev.nav.no"
+  - "dev.nav.no"
