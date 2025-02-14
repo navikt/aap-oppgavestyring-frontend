@@ -42,10 +42,6 @@ spec:
       destinations:
         - id: elastic
         - id: loki
-  ingresses:
-  {{#each ingresses as |url|}}
-    - {{url}}
-  {{/each}}
   env:
   {{#each env}}
     - name: {{this.name }}
@@ -54,6 +50,9 @@ spec:
   tokenx:
     enabled: true
   accessPolicy:
+    inbound:
+      rules:
+        - application: "kelvin-reverse-proxy"
     outbound:
       rules:
         - application: "oppgave"

@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: 'oppgavestyring-frontend',
   trailingSlash: true,
   reactStrictMode: true,
   output: 'standalone',
