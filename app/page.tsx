@@ -8,7 +8,7 @@ const Page = async () => {
   return (
     <div className={styles.container}>
       <Kort>
-        <MineOppgaver oppgaver={mineOppgaver || []} />
+        <MineOppgaver oppgaver={mineOppgaver.oppgaver || []} />
       </Kort>
     </div>
   );

@@ -1,10 +1,10 @@
 import { NextRequest } from 'next/server';
 import { logError } from '@navikt/aap-felles-utils';
 import { hentOppgaveliste } from 'lib/services/oppgaveService/oppgaveService';
-import { OppgavelisteRequestBody } from 'lib/types/types';
+import { OppgavelisteRequest } from 'lib/types/types';
 
 export async function POST(req: NextRequest) {
-  const data: OppgavelisteRequestBody = await req
+  const data: Partial<OppgavelisteRequest> = await req
     .json()
     .then((data) => ({ filterId: data.filterId, enheter: data.enheter }));
   if (data.filterId === undefined || data.enheter === undefined) {
@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const result = await hentOppgaveliste(data);
+    const result = await hentOppgaveliste(data.filterId, data.enheter);
     return new Response(JSON.stringify(result), { status: 200 });
   } catch (error) {
     logError(`/api/oppgave/hent-oppgaver`, error);

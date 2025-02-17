@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Enhet, Kø, Oppgave, OppgavelisteRequestBody } from 'lib/types/types';
+import { Enhet, Kø, Oppgave, OppgavelisteRequest } from 'lib/types/types';
 import { VelgOppgaveKø } from 'components/velgoppgavekø/VelgOppgaveKø';
 import { Kort } from 'components/oppgavebehandling/kort/Kort';
 import { OppgaveTabell } from 'components/oppgavetabell/OppgaveTabell';
@@ -18,7 +18,7 @@ interface Props {
 }
 
 async function fetchKø(filterId: number, enhet: string) {
-  const payload: OppgavelisteRequestBody = { filterId, enheter: [enhet] };
+  const payload: Partial<OppgavelisteRequest> = { filterId, enheter: [enhet] };
   return fetchProxy<Oppgave[]>('/api/oppgave/oppgaveliste', 'POST', payload);
 }
 

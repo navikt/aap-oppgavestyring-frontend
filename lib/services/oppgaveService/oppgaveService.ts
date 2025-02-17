@@ -6,7 +6,7 @@ import {
   NesteOppgaveRequestBody,
   NesteOppgaveResponse,
   Oppgave,
-  OppgavelisteRequestBody,
+  OppgavelisteResponse,
 } from 'lib/types/types';
 import {
   NoNavAapOppgaveOppgaveDtoBehandlingstype,
@@ -60,14 +60,23 @@ export const hentKøer = async (): Promise<Kø[]> => {
   const url = `${oppgaveApiBaseUrl}/filter`;
   return await fetchProxy<Kø[]>(url, oppgaveApiScope, 'GET');
 };
-export const hentMineOppgaver = async (): Promise<Oppgave[]> => {
+export const hentMineOppgaver = async (): Promise<OppgavelisteResponse> => {
   if (isLocal()) {
-    return oppgaveMock;
+    return {
+      antallTotalt: 12,
+      oppgaver: oppgaveMock,
+    };
   }
   const url = `${oppgaveApiBaseUrl}/mine-oppgaver`;
-  return await fetchProxyNoRetry<Oppgave[]>(url, oppgaveApiScope, 'GET', undefined, 'oppgaveservice/mine-oppgaver');
+  return await fetchProxyNoRetry<OppgavelisteResponse>(
+    url,
+    oppgaveApiScope,
+    'GET',
+    undefined,
+    'oppgaveservice/mine-oppgaver'
+  );
 };
-export const hentOppgaveliste = async ({ filterId, enheter }: OppgavelisteRequestBody): Promise<Oppgave[]> => {
+export const hentOppgaveliste = async (filterId: number, enheter: string[]): Promise<Oppgave[]> => {
   if (isLocal()) {
     return [
       {

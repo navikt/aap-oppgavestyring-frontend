@@ -12,7 +12,7 @@ const Page = async () => {
     <div className={styles.container}>
       <OppgaveKøMedOppgaver køer={køer} enheter={enheter} />
       <Kort>
-        <MineOppgaver oppgaver={mineOppgaver || []} />
+        <MineOppgaver oppgaver={mineOppgaver.oppgaver || []} />
       </Kort>
     </div>
   );
