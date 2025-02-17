@@ -8,6 +8,7 @@ import { Oppgavekø } from 'components/oppgavebehandling/oppgavekø/Oppgavekø';
 import { KøProvider } from 'components/oppgavebehandling/KøContext';
 import { DineOppgaver } from 'components/oppgavebehandling/oppgavekø/DineOppgaver';
 import { BehandleNesteOppgave } from 'components/oppgavebehandling/behandlenesteoppgave/BehandleNesteOppgave';
+import { Suspense } from 'react';
 
 const Page = () => {
   return (
@@ -15,12 +16,14 @@ const Page = () => {
       <HGrid gap={'8'} columns={'1fr'}>
         <HGrid>
           <Kort>
-            <KøProvider>
-              <Køvelger />
-              <BehandleNesteOppgave />
-              <DineOppgaver />
-              <Oppgavekø />
-            </KøProvider>
+            <Suspense>
+              <KøProvider>
+                <Køvelger />
+                <BehandleNesteOppgave />
+                <DineOppgaver />
+                <Oppgavekø />
+              </KøProvider>
+            </Suspense>
           </Kort>
         </HGrid>
       </HGrid>

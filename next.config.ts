@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  basePath: 'oppgavestyring-frontend',
+import type { NextConfig } from 'next';
+const nextConfig: NextConfig = {
+  basePath: '/oppgavestyring-frontend',
   trailingSlash: true,
   reactStrictMode: true,
   output: 'standalone',
