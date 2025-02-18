@@ -42,6 +42,18 @@ export function mapBehovskodeTilBehovstype(kode: AvklaringsbehovKode): string {
       return 'Avklar yrkesskade';
     case '5014':
       return 'Fastsett yrkesskadebeløp';
+    case '5015':
+      return '§ 11-17 AAP som arbeidssøker';
+    case '5016':
+      return 'Forhåndsvarsel aktivitetsplikt';
+    case '5017':
+      return '§ 11-2 Lovvalg og medlemskap';
+    case '5018':
+      return 'Venter på uttalelse fra bruker på forhåndsvarsel';
+    case '5019':
+      return 'Venter på utenlandsoverføring';
+    case '5020':
+      return 'Forutgående medlemskap';
     case '5050':
       return 'Skriv brev';
     // Postmottak
